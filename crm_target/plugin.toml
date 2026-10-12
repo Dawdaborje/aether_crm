@@ -1,0 +1,40 @@
+[plugin]
+name = "crm_target"
+icon_path = "assets/logo.svg"
+label = "Sales targets"
+version = "0.1.0"
+description = "Team and rep quotas versus won revenue."
+long_description = """
+Team and rep quotas versus won revenue. Written in Rust.
+See docs/design.md in this plugin (crm_target/docs/design.md).
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["crm", "crm_deal", "company", "currency"]
+capabilities = ["db::query", "db::mutate", "events::emit", "plugins::call"]
+access_models = [
+  { name = "sales_target", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[roles]]
+name = "crm_user"
+label = "CRM user"
+description = "Reads targets and attainment."
+
+[[roles]]
+name = "crm_admin"
+label = "CRM administrator"
+description = "Defines sales targets."
+
+[app]
+icon = "target"
+route = "/crm/targets"
+description = "Team and rep quotas versus won revenue."
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "crm"

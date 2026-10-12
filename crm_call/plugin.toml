@@ -1,0 +1,43 @@
+[plugin]
+name = "crm_call"
+icon_path = "assets/logo.svg"
+label = "Call log"
+version = "0.1.0"
+description = "Phone call records linked to parties, leads and deals."
+long_description = """
+Phone call records linked to parties, leads and deals. Written in Rust.
+See docs/design.md in this plugin (crm_call/docs/design.md).
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["crm_lead", "crm_deal", "party"]
+capabilities = ["db::query", "db::mutate", "events::emit", "plugins::call"]
+access_models = [
+  { name = "call_log", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[roles]]
+name = "crm_user"
+label = "CRM user"
+description = "Logs and updates calls."
+
+[[roles]]
+name = "crm_admin"
+label = "CRM administrator"
+description = "Full call-log administration."
+
+[[events]]
+name = "call_logged"
+
+[app]
+icon = "phone"
+route = "/crm/calls"
+description = "Phone call records linked to parties, leads and deals."
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "crm"

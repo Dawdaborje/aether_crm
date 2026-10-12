@@ -1,0 +1,41 @@
+[plugin]
+name = "crm_campaign"
+icon_path = "assets/logo.svg"
+label = "Campaigns"
+version = "0.1.0"
+description = "Campaigns and UTM attribution on leads and deals."
+long_description = """
+Campaigns and UTM attribution on leads and deals. Written in Rust.
+See docs/design.md in this plugin (crm_campaign/docs/design.md).
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["crm_lead", "crm_deal", "party"]
+capabilities = ["db::query", "db::mutate", "events::emit", "plugins::call"]
+access_models = [
+  { name = "campaign", permissions = ["read", "write"] },
+  { name = "campaign_member", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[roles]]
+name = "crm_user"
+label = "CRM user"
+description = "Adds campaign members."
+
+[[roles]]
+name = "crm_admin"
+label = "CRM administrator"
+description = "Defines campaigns."
+
+[app]
+icon = "megaphone"
+route = "/crm/campaigns"
+description = "Campaigns and UTM attribution on leads and deals."
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "crm"

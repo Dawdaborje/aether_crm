@@ -1,0 +1,119 @@
+{
+  "model_id": "mdl_295y8zhn15",
+  "name": "pipeline_event",
+  "label": "%pipeline_event%",
+  "plural_label": "%pipeline_events%",
+  "icon": "history",
+  "title_field": "kind",
+  "fields": [
+    {
+      "name": "subject_kind",
+      "label": "%subject_kind%",
+      "type": "select",
+      "required": true,
+      "options": [
+        {
+          "id": "opt_ezf7ob1d3w",
+          "value": "lead",
+          "label": "%lead%"
+        },
+        {
+          "id": "opt_01gi8ivf3c",
+          "value": "deal",
+          "label": "%deal%"
+        }
+      ],
+      "id": "fld_hswcn8ga9b"
+    },
+    {
+      "name": "subject_id",
+      "label": "%subject_id%",
+      "type": "string",
+      "required": true,
+      "max_length": 128,
+      "index": "plain",
+      "id": "fld_hdnrobbshl"
+    },
+    {
+      "name": "from_stage",
+      "label": "%from_stage%",
+      "type": "link",
+      "target": "crm.crm_stage",
+      "target_id": "mdl_sw0p12c9nr",
+      "id": "fld_k6z4sqd0y7"
+    },
+    {
+      "name": "to_stage",
+      "label": "%to_stage%",
+      "type": "link",
+      "target": "crm.crm_stage",
+      "target_id": "mdl_sw0p12c9nr",
+      "id": "fld_ds2zy29jy1"
+    },
+    {
+      "name": "kind",
+      "label": "%kind%",
+      "type": "select",
+      "required": true,
+      "options": [
+        {
+          "id": "opt_15tb5tsyyq",
+          "value": "enter",
+          "label": "%enter%"
+        },
+        {
+          "id": "opt_9yy78vnu2q",
+          "value": "win",
+          "label": "%win%"
+        },
+        {
+          "id": "opt_6m5b4a6d5i",
+          "value": "lose",
+          "label": "%lose%"
+        },
+        {
+          "id": "opt_jexyyhsam3",
+          "value": "reopen",
+          "label": "%reopen%"
+        },
+        {
+          "id": "opt_1k61lrw3pi",
+          "value": "convert",
+          "label": "%convert%"
+        }
+      ],
+      "id": "fld_ev4t905bhj"
+    },
+    {
+      "name": "at",
+      "label": "%at%",
+      "type": "datetime",
+      "required": true,
+      "id": "fld_r1eue95jb1"
+    },
+    {
+      "name": "by",
+      "label": "%by%",
+      "type": "string",
+      "max_length": 128,
+      "id": "fld_90lfkupl0w"
+    },
+    {
+      "name": "seq",
+      "label": "%seq%",
+      "type": "int",
+      "required": true,
+      "default": 1,
+      "id": "fld_7h8q88zzs5"
+    }
+  ],
+  "view": {
+    "list": [
+      "subject_kind",
+      "subject_id",
+      "kind",
+      "to_stage",
+      "at"
+    ]
+  }
+}

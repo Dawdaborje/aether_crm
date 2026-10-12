@@ -1,0 +1,41 @@
+{
+  "model_id": "mdl_qd0w6dyq5v",
+  "name": "crm_industry",
+  "label": "%industry%",
+  "plural_label": "%industries%",
+  "icon": "factory",
+  "title_field": "name",
+  "fields": [
+    {
+      "name": "code",
+      "label": "%code%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique",
+      "id": "fld_6aqv2ukp4n"
+    },
+    {
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "id": "fld_4rglzwpves"
+    },
+    {
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true,
+      "id": "fld_idrjclxova"
+    }
+  ],
+  "view": {
+    "list": [
+      "code",
+      "name",
+      "active"
+    ]
+  }
+}

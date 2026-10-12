@@ -1,0 +1,67 @@
+{
+  "model_id": "mdl_wd6grcxr3e",
+  "name": "deal_line",
+  "label": "%deal_line%",
+  "plural_label": "%deal_lines%",
+  "icon": "list",
+  "title_field": "description",
+  "fields": [
+    {
+      "name": "deal",
+      "label": "%deal%",
+      "type": "link",
+      "required": true,
+      "target": "deal",
+      "index": "plain",
+      "id": "fld_mfojircirh"
+    },
+    {
+      "name": "line_no",
+      "label": "%line_no%",
+      "type": "int",
+      "required": true,
+      "default": 1,
+      "id": "fld_l2m6cybzfi"
+    },
+    {
+      "name": "description",
+      "label": "%description%",
+      "type": "string",
+      "max_length": 500,
+      "id": "fld_88ijteyfen"
+    },
+    {
+      "name": "qty",
+      "label": "%qty%",
+      "type": "decimal",
+      "scale": 4,
+      "default": "1",
+      "id": "fld_ca0rg7ffc2"
+    },
+    {
+      "name": "unit_price",
+      "label": "%unit_price%",
+      "type": "decimal",
+      "scale": 2,
+      "default": "0",
+      "id": "fld_cuwjgep4cp"
+    },
+    {
+      "name": "amount",
+      "label": "%amount%",
+      "type": "decimal",
+      "scale": 2,
+      "default": "0",
+      "id": "fld_djrvmqq9ji"
+    }
+  ],
+  "view": {
+    "list": [
+      "deal",
+      "line_no",
+      "description",
+      "qty",
+      "amount"
+    ]
+  }
+}

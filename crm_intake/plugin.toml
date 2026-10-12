@@ -1,0 +1,43 @@
+[plugin]
+name = "crm_intake"
+icon_path = "assets/logo.svg"
+label = "Lead intake"
+version = "0.1.0"
+description = "Inbound forms and website-to-lead (or deal) creation."
+long_description = """
+Inbound forms and website-to-lead (or deal) creation. Written in Rust.
+See docs/design.md in this plugin (crm_intake/docs/design.md).
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["crm", "crm_lead", "crm_deal", "company"]
+capabilities = ["db::query", "db::mutate", "events::emit", "plugins::call"]
+access_models = [
+  { name = "intake_form", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[roles]]
+name = "crm_user"
+label = "CRM user"
+description = "Submits intake forms (service / bridge user)."
+
+[[roles]]
+name = "crm_admin"
+label = "CRM administrator"
+description = "Defines intake forms."
+
+[[events]]
+name = "intake_submitted"
+
+[app]
+icon = "form-input"
+route = "/crm/intake"
+description = "Inbound forms and website-to-lead (or deal) creation."
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "crm"

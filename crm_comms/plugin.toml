@@ -1,0 +1,46 @@
+[plugin]
+name = "crm_comms"
+icon_path = "assets/logo.svg"
+label = "CRM communications"
+version = "0.1.0"
+description = "Email and messaging threads on leads and deals via kernel messaging."
+long_description = """
+Email and messaging threads on leads and deals via kernel messaging. Written in Rust.
+See docs/design.md in this plugin (crm_comms/docs/design.md).
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["crm_lead", "crm_deal", "crm_sla"]
+capabilities = ["db::query", "db::mutate", "events::emit", "plugins::call"]
+access_models = [
+  { name = "comms_thread", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[roles]]
+name = "crm_user"
+label = "CRM user"
+description = "Opens threads and appends message refs."
+
+[[roles]]
+name = "crm_admin"
+label = "CRM administrator"
+description = "Full communications administration."
+
+[[events]]
+name = "thread_opened"
+
+[[events]]
+name = "message_appended"
+
+[app]
+icon = "messages-square"
+route = "/crm/comms"
+description = "Email and messaging threads on leads and deals via kernel messaging."
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "crm"

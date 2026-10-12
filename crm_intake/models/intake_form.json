@@ -1,0 +1,103 @@
+{
+  "model_id": "mdl_xomonui2v0",
+  "name": "intake_form",
+  "label": "%intake_form%",
+  "plural_label": "%intake_forms%",
+  "icon": "form-input",
+  "title_field": "name",
+  "fields": [
+    {
+      "name": "key",
+      "label": "%key%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique",
+      "id": "fld_3g0ud8p7ve"
+    },
+    {
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "id": "fld_bpkch979o2"
+    },
+    {
+      "name": "create_mode",
+      "label": "%create_mode%",
+      "type": "select",
+      "required": true,
+      "default": "lead",
+      "options": [
+        {
+          "id": "opt_nn6zs8ajtr",
+          "value": "lead",
+          "label": "%lead%"
+        },
+        {
+          "id": "opt_8wfdmmklcj",
+          "value": "deal",
+          "label": "%deal%"
+        }
+      ],
+      "id": "fld_f6fij4iu8w"
+    },
+    {
+      "name": "company",
+      "label": "%company%",
+      "type": "link",
+      "required": true,
+      "target": "company.company",
+      "target_id": "mdl_d7q6tyyshp",
+      "id": "fld_v8npsgqi6z"
+    },
+    {
+      "name": "default_stage",
+      "label": "%default_stage%",
+      "type": "link",
+      "target": "crm.crm_stage",
+      "target_id": "mdl_sw0p12c9nr",
+      "id": "fld_3xmubh3qzf"
+    },
+    {
+      "name": "default_pipeline",
+      "label": "%default_pipeline%",
+      "type": "link",
+      "target": "crm.crm_pipeline",
+      "target_id": "mdl_i0iojjup5o",
+      "id": "fld_h2v6y5ybcw"
+    },
+    {
+      "name": "default_source",
+      "label": "%default_source%",
+      "type": "link",
+      "target": "crm.crm_source",
+      "target_id": "mdl_hajhkmj2gc",
+      "id": "fld_v5dde5pqf1"
+    },
+    {
+      "name": "field_map",
+      "label": "%field_map%",
+      "type": "text",
+      "help": "JSON map of inbound field \u2192 lead/deal field",
+      "id": "fld_hufohjvums"
+    },
+    {
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true,
+      "id": "fld_n6ctbx2ez5"
+    }
+  ],
+  "view": {
+    "list": [
+      "key",
+      "name",
+      "create_mode",
+      "company",
+      "active"
+    ]
+  }
+}

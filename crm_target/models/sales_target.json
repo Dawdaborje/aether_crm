@@ -1,0 +1,93 @@
+{
+  "model_id": "mdl_6okc9lxzkp",
+  "name": "sales_target",
+  "label": "%sales_target%",
+  "plural_label": "%sales_targets%",
+  "icon": "target",
+  "title_field": "name",
+  "fields": [
+    {
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "id": "fld_8gn48vrure"
+    },
+    {
+      "name": "company",
+      "label": "%company%",
+      "type": "link",
+      "required": true,
+      "target": "company.company",
+      "target_id": "mdl_d7q6tyyshp",
+      "index": "plain",
+      "id": "fld_05fzz8vlrm"
+    },
+    {
+      "name": "team",
+      "label": "%team%",
+      "type": "link",
+      "target": "crm.crm_team",
+      "target_id": "mdl_smo1471c7c",
+      "id": "fld_lwr6zl0dzp"
+    },
+    {
+      "name": "owner",
+      "label": "%owner%",
+      "type": "string",
+      "max_length": 128,
+      "help": "User id when the target is for a rep",
+      "id": "fld_ocre5hoil2"
+    },
+    {
+      "name": "period_start",
+      "label": "%period_start%",
+      "type": "date",
+      "required": true,
+      "id": "fld_61uuw7iv5t"
+    },
+    {
+      "name": "period_end",
+      "label": "%period_end%",
+      "type": "date",
+      "required": true,
+      "id": "fld_g5zisrjo5b"
+    },
+    {
+      "name": "amount",
+      "label": "%amount%",
+      "type": "decimal",
+      "required": true,
+      "scale": 2,
+      "id": "fld_a0eqecsuxz"
+    },
+    {
+      "name": "currency",
+      "label": "%currency%",
+      "type": "link",
+      "required": true,
+      "target": "currency.currency",
+      "target_id": "mdl_khholv2eis",
+      "id": "fld_lw9prrhnby"
+    },
+    {
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true,
+      "id": "fld_p5517i23lq"
+    }
+  ],
+  "view": {
+    "list": [
+      "name",
+      "company",
+      "team",
+      "owner",
+      "period_start",
+      "period_end",
+      "amount"
+    ]
+  }
+}

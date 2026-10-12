@@ -1,0 +1,48 @@
+[plugin]
+name = "crm_customer"
+icon_path = "assets/logo.svg"
+label = "Customers"
+version = "0.1.0"
+description = "Customer 360 overlay on party: segment, owner, territory, lifecycle."
+long_description = """
+Customer 360 overlay on party: segment, owner, territory, lifecycle. Written in Rust.
+See docs/design.md in this plugin (crm_customer/docs/design.md).
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["crm", "party", "company"]
+capabilities = ["db::query", "db::mutate", "events::emit", "events::subscribe", "plugins::call"]
+access_models = [
+  { name = "customer", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[roles]]
+name = "crm_user"
+label = "CRM user"
+description = "Reads and updates customers."
+
+[[roles]]
+name = "crm_admin"
+label = "CRM administrator"
+description = "Full customer administration."
+
+[[events]]
+name = "customer_created"
+
+[[events]]
+name = "party.merged"
+direction = "listen"
+handler = "on_party_merged"
+
+[app]
+icon = "building"
+route = "/crm/customers"
+description = "Customer 360 overlay on party: segment, owner, territory, lifecycle."
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "crm"

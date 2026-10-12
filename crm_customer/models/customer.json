@@ -1,0 +1,111 @@
+{
+  "model_id": "mdl_w5i76vw1dc",
+  "name": "customer",
+  "label": "%customer%",
+  "plural_label": "%customers%",
+  "icon": "building",
+  "title_field": "party",
+  "fields": [
+    {
+      "name": "party",
+      "label": "%party%",
+      "type": "link",
+      "required": true,
+      "target": "party.party",
+      "target_id": "mdl_mr76tss5ic",
+      "index": "plain",
+      "id": "fld_9vi24v5fov"
+    },
+    {
+      "name": "company",
+      "label": "%company%",
+      "type": "link",
+      "required": true,
+      "target": "company.company",
+      "target_id": "mdl_d7q6tyyshp",
+      "index": "plain",
+      "id": "fld_pe9mileu71"
+    },
+    {
+      "name": "owner",
+      "label": "%owner%",
+      "type": "string",
+      "max_length": 128,
+      "id": "fld_ucmof5t27r"
+    },
+    {
+      "name": "territory",
+      "label": "%territory%",
+      "type": "link",
+      "target": "crm.crm_territory",
+      "target_id": "mdl_m7et8bwa4v",
+      "id": "fld_bob3m9cvka"
+    },
+    {
+      "name": "team",
+      "label": "%team%",
+      "type": "link",
+      "target": "crm.crm_team",
+      "target_id": "mdl_smo1471c7c",
+      "id": "fld_y9cofq8zgy"
+    },
+    {
+      "name": "segment",
+      "label": "%segment%",
+      "type": "string",
+      "max_length": 100,
+      "id": "fld_pi1ty076r1"
+    },
+    {
+      "name": "lifecycle",
+      "label": "%lifecycle%",
+      "type": "select",
+      "required": true,
+      "default": "prospect",
+      "options": [
+        {
+          "id": "opt_qui5jguxde",
+          "value": "prospect",
+          "label": "%prospect%"
+        },
+        {
+          "id": "opt_0k9qkieod7",
+          "value": "active",
+          "label": "%active%"
+        },
+        {
+          "id": "opt_p0k1md5ps0",
+          "value": "churned",
+          "label": "%churned%"
+        }
+      ],
+      "id": "fld_ykfv29ngpg"
+    },
+    {
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true,
+      "id": "fld_cx5ozr9c8e"
+    }
+  ],
+  "indexes": [
+    {
+      "id": "idx_u1ynmpa4kt",
+      "fields": [
+        "party",
+        "company"
+      ],
+      "unique": true
+    }
+  ],
+  "view": {
+    "list": [
+      "party",
+      "company",
+      "owner",
+      "lifecycle",
+      "active"
+    ]
+  }
+}

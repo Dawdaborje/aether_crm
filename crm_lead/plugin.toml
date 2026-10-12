@@ -1,0 +1,57 @@
+[plugin]
+name = "crm_lead"
+icon_path = "assets/logo.svg"
+label = "Leads"
+version = "0.1.0"
+description = "Unqualified prospects and idempotent convert to deal."
+long_description = """
+Unqualified prospects and idempotent convert to deal. Written in Rust.
+See docs/design.md in this plugin (crm_lead/docs/design.md).
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["crm", "crm_customer", "crm_deal", "party", "company"]
+capabilities = ["db::query", "db::mutate", "events::emit", "events::subscribe", "plugins::call"]
+access_models = [
+  { name = "lead", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[roles]]
+name = "crm_user"
+label = "CRM user"
+description = "Creates and converts leads."
+
+[[roles]]
+name = "crm_admin"
+label = "CRM administrator"
+description = "Full lead administration."
+
+[[events]]
+name = "lead_created"
+
+[[events]]
+name = "lead_qualified"
+
+[[events]]
+name = "lead_converted"
+
+[[events]]
+name = "lead_lost"
+
+[[events]]
+name = "party.merged"
+direction = "listen"
+handler = "on_party_merged"
+
+[app]
+icon = "user-plus"
+route = "/crm/leads"
+description = "Unqualified prospects and idempotent convert to deal."
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "crm"

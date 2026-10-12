@@ -1,0 +1,55 @@
+[plugin]
+name = "crm_deal"
+icon_path = "assets/logo.svg"
+label = "Deals"
+version = "0.1.0"
+description = "Opportunities, lines, append-only pipeline events, win and lose."
+long_description = """
+Opportunities, lines, append-only pipeline events, win and lose. Written in Rust.
+See docs/design.md in this plugin (crm_deal/docs/design.md).
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["crm", "crm_customer", "party", "company", "currency"]
+capabilities = ["db::query", "db::mutate", "events::emit", "events::subscribe", "plugins::call"]
+access_models = [
+  { name = "deal", permissions = ["read", "write"] },
+  { name = "deal_line", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[roles]]
+name = "crm_user"
+label = "CRM user"
+description = "Works deals through the pipeline."
+
+[[roles]]
+name = "crm_admin"
+label = "CRM administrator"
+description = "Full deal administration."
+
+[[events]]
+name = "deal_stage_changed"
+
+[[events]]
+name = "deal_won"
+
+[[events]]
+name = "deal_lost"
+
+[[events]]
+name = "party.merged"
+direction = "listen"
+handler = "on_party_merged"
+
+[app]
+icon = "handshake"
+route = "/crm/deals"
+description = "Opportunities, lines, append-only pipeline events, win and lose."
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "crm"

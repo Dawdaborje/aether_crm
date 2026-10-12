@@ -1,0 +1,26 @@
+{
+  "model": "crm_team_member",
+  "access": [
+    {
+      "name": "read",
+      "roles": [
+        "crm_reader",
+        "crm_admin"
+      ],
+      "operations": [
+        "read"
+      ]
+    },
+    {
+      "name": "write",
+      "roles": [
+        "crm_admin"
+      ],
+      "operations": [
+        "read",
+        "create",
+        "write"
+      ]
+    }
+  ]
+}

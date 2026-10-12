@@ -1,0 +1,47 @@
+{
+  "model_id": "mdl_jeczwvf4lh",
+  "name": "saved_funnel",
+  "label": "%saved_funnel%",
+  "plural_label": "%saved_funnels%",
+  "icon": "filter",
+  "title_field": "name",
+  "fields": [
+    {
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "id": "fld_cp07diqrrt"
+    },
+    {
+      "name": "pipeline",
+      "label": "%pipeline%",
+      "type": "link",
+      "target": "crm.crm_pipeline",
+      "target_id": "mdl_i0iojjup5o",
+      "id": "fld_bb1ta6461e"
+    },
+    {
+      "name": "filters",
+      "label": "%filters%",
+      "type": "text",
+      "help": "JSON filters",
+      "id": "fld_00syfgko5f"
+    },
+    {
+      "name": "owner",
+      "label": "%owner%",
+      "type": "string",
+      "max_length": 128,
+      "id": "fld_kvdk9j8y3f"
+    }
+  ],
+  "view": {
+    "list": [
+      "name",
+      "pipeline",
+      "owner"
+    ]
+  }
+}

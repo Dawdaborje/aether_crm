@@ -1,0 +1,39 @@
+{
+  "model": "pipeline_event",
+  "access": [
+    {
+      "name": "read",
+      "roles": [
+        "crm_user",
+        "crm_admin"
+      ],
+      "operations": [
+        "read"
+      ]
+    },
+    {
+      "name": "write",
+      "roles": [
+        "crm_admin"
+      ],
+      "operations": [
+        "read",
+        "create",
+        "write"
+      ]
+    },
+    {
+      "name": "append",
+      "roles": [
+        "crm_user",
+        "crm_admin",
+        "via:*",
+        "via:self"
+      ],
+      "operations": [
+        "create",
+        "read"
+      ]
+    }
+  ]
+}

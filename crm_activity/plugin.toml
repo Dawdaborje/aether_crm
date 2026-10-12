@@ -1,0 +1,48 @@
+[plugin]
+name = "crm_activity"
+icon_path = "assets/logo.svg"
+label = "Activities"
+version = "0.1.0"
+description = "Tasks, meetings and call-activities on leads and deals."
+long_description = """
+Tasks, meetings and call-activities on leads and deals. Written in Rust.
+See docs/design.md in this plugin (crm_activity/docs/design.md).
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["crm_lead", "crm_deal"]
+capabilities = ["db::query", "db::mutate", "events::emit", "plugins::call"]
+access_models = [
+  { name = "activity", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[roles]]
+name = "crm_user"
+label = "CRM user"
+description = "Creates and completes activities."
+
+[[roles]]
+name = "crm_admin"
+label = "CRM administrator"
+description = "Full activity administration."
+
+[[events]]
+name = "activity_overdue"
+
+[[schedule]]
+name = "activity-nightly"
+function = "activity_nightly"
+cron = "15 1 * * *"
+
+[app]
+icon = "check-square"
+route = "/crm/activities"
+description = "Tasks, meetings and call-activities on leads and deals."
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "crm"

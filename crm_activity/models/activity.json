@@ -1,0 +1,159 @@
+{
+  "model_id": "mdl_ndxnj7dmks",
+  "name": "activity",
+  "label": "%activity%",
+  "plural_label": "%activities%",
+  "icon": "check-square",
+  "title_field": "title",
+  "fields": [
+    {
+      "name": "title",
+      "label": "%title%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "id": "fld_1t10171s0t"
+    },
+    {
+      "name": "kind",
+      "label": "%kind%",
+      "type": "select",
+      "required": true,
+      "default": "task",
+      "options": [
+        {
+          "id": "opt_0idqbndrbf",
+          "value": "task",
+          "label": "%task%"
+        },
+        {
+          "id": "opt_1p103bushn",
+          "value": "call",
+          "label": "%call%"
+        },
+        {
+          "id": "opt_lebiit3ri4",
+          "value": "meeting",
+          "label": "%meeting%"
+        }
+      ],
+      "id": "fld_ldbx2e0pet"
+    },
+    {
+      "name": "subject_kind",
+      "label": "%subject_kind%",
+      "type": "select",
+      "required": true,
+      "options": [
+        {
+          "id": "opt_cx4971qgoi",
+          "value": "lead",
+          "label": "%lead%"
+        },
+        {
+          "id": "opt_45ll1nol8s",
+          "value": "deal",
+          "label": "%deal%"
+        }
+      ],
+      "id": "fld_8sercmd5jl"
+    },
+    {
+      "name": "subject_id",
+      "label": "%subject_id%",
+      "type": "string",
+      "required": true,
+      "max_length": 128,
+      "index": "plain",
+      "id": "fld_d3iv1x0u32"
+    },
+    {
+      "name": "assignee",
+      "label": "%assignee%",
+      "type": "string",
+      "max_length": 128,
+      "id": "fld_3zovuyxp01"
+    },
+    {
+      "name": "due_at",
+      "label": "%due_at%",
+      "type": "datetime",
+      "id": "fld_fe2ppakhxo"
+    },
+    {
+      "name": "state",
+      "label": "%state%",
+      "type": "select",
+      "required": true,
+      "default": "todo",
+      "options": [
+        {
+          "id": "opt_dmmzi98m5g",
+          "value": "backlog",
+          "label": "%backlog%"
+        },
+        {
+          "id": "opt_gq7eh5znxg",
+          "value": "todo",
+          "label": "%todo%"
+        },
+        {
+          "id": "opt_ipej4y1qw6",
+          "value": "in_progress",
+          "label": "%in_progress%"
+        },
+        {
+          "id": "opt_mugebxdwbk",
+          "value": "done",
+          "label": "%done%"
+        },
+        {
+          "id": "opt_g43am0i2vs",
+          "value": "cancelled",
+          "label": "%cancelled%"
+        }
+      ],
+      "id": "fld_kqnuh4vokm"
+    },
+    {
+      "name": "priority",
+      "label": "%priority%",
+      "type": "select",
+      "default": "medium",
+      "options": [
+        {
+          "id": "opt_x2jmaz50zn",
+          "value": "low",
+          "label": "%low%"
+        },
+        {
+          "id": "opt_mu9iw2uu8s",
+          "value": "medium",
+          "label": "%medium%"
+        },
+        {
+          "id": "opt_yjtn026m7e",
+          "value": "high",
+          "label": "%high%"
+        }
+      ],
+      "id": "fld_s4gi4g63b2"
+    },
+    {
+      "name": "description",
+      "label": "%description%",
+      "type": "text",
+      "id": "fld_6h0rsk3m4e"
+    }
+  ],
+  "view": {
+    "list": [
+      "title",
+      "kind",
+      "subject_kind",
+      "assignee",
+      "due_at",
+      "state"
+    ]
+  }
+}

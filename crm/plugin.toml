@@ -1,0 +1,50 @@
+[plugin]
+name = "crm"
+icon_path = "assets/logo.svg"
+label = "CRM setup"
+version = "0.1.0"
+description = "Sources, industries, lost reasons, tags, territories, teams, pipelines and stages."
+long_description = """
+Sources, industries, lost reasons, tags, territories, teams, pipelines and stages. Written in Rust.
+See docs/design.md in this plugin (crm/docs/design.md).
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["party", "company", "currency", "number_sequence"]
+capabilities = ["db::query", "db::mutate", "events::emit", "plugins::call"]
+access_models = [
+  { name = "crm_source", permissions = ["read", "write"] },
+  { name = "crm_industry", permissions = ["read", "write"] },
+  { name = "crm_lost_reason", permissions = ["read", "write"] },
+  { name = "crm_tag", permissions = ["read", "write"] },
+  { name = "crm_territory", permissions = ["read", "write"] },
+  { name = "crm_team", permissions = ["read", "write"] },
+  { name = "crm_team_member", permissions = ["read", "write"] },
+  { name = "crm_pipeline", permissions = ["read", "write"] },
+  { name = "crm_stage", permissions = ["read", "write"] },
+  { name = "crm_company_settings", permissions = ["read", "write"] },
+  { name = "pipeline_event", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[roles]]
+name = "crm_admin"
+label = "CRM administrator"
+description = "Creates and changes CRM masters and company settings."
+
+[[roles]]
+name = "crm_reader"
+label = "CRM reader"
+description = "Reads CRM masters, pipelines and stages."
+
+[app]
+icon = "settings"
+route = "/crm/setup"
+description = "Sources, industries, lost reasons, tags, territories, teams, pipelines and stages."
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "crm"

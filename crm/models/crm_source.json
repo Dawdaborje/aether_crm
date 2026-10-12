@@ -1,0 +1,41 @@
+{
+  "model_id": "mdl_hajhkmj2gc",
+  "name": "crm_source",
+  "label": "%source%",
+  "plural_label": "%sources%",
+  "icon": "tag",
+  "title_field": "name",
+  "fields": [
+    {
+      "name": "code",
+      "label": "%code%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique",
+      "id": "fld_puap18lvpr"
+    },
+    {
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "id": "fld_qbe60bu45m"
+    },
+    {
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true,
+      "id": "fld_1eaw307zew"
+    }
+  ],
+  "view": {
+    "list": [
+      "code",
+      "name",
+      "active"
+    ]
+  }
+}

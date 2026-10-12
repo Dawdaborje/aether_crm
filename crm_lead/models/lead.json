@@ -1,0 +1,198 @@
+{
+  "model_id": "mdl_ga5sgzjczk",
+  "name": "lead",
+  "label": "%lead%",
+  "plural_label": "%leads%",
+  "icon": "user-plus",
+  "title_field": "title",
+  "fields": [
+    {
+      "name": "number",
+      "label": "%number%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique",
+      "sequence": {
+        "pattern": "LEAD-{#####}",
+        "reset": "yearly"
+      },
+      "id": "fld_1ohmxnayvs"
+    },
+    {
+      "name": "company",
+      "label": "%company%",
+      "type": "link",
+      "required": true,
+      "target": "company.company",
+      "target_id": "mdl_d7q6tyyshp",
+      "index": "plain",
+      "id": "fld_lqrhx3y4u8"
+    },
+    {
+      "name": "title",
+      "label": "%title%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "id": "fld_7g5c0q9vk8"
+    },
+    {
+      "name": "contact_party",
+      "label": "%contact_party%",
+      "type": "link",
+      "target": "party.party",
+      "target_id": "mdl_mr76tss5ic",
+      "id": "fld_j4ti0fk7j9"
+    },
+    {
+      "name": "org_party",
+      "label": "%org_party%",
+      "type": "link",
+      "target": "party.party",
+      "target_id": "mdl_mr76tss5ic",
+      "id": "fld_g35bbj1osq"
+    },
+    {
+      "name": "email",
+      "label": "%email%",
+      "type": "string",
+      "max_length": 254,
+      "id": "fld_41w48qbn4u"
+    },
+    {
+      "name": "phone",
+      "label": "%phone%",
+      "type": "string",
+      "max_length": 64,
+      "id": "fld_yu5jy192no"
+    },
+    {
+      "name": "person_name",
+      "label": "%person_name%",
+      "type": "string",
+      "max_length": 200,
+      "id": "fld_9r7fmsv6ze"
+    },
+    {
+      "name": "org_name",
+      "label": "%org_name%",
+      "type": "string",
+      "max_length": 200,
+      "id": "fld_kc8zilnkjc"
+    },
+    {
+      "name": "source",
+      "label": "%source%",
+      "type": "link",
+      "target": "crm.crm_source",
+      "target_id": "mdl_hajhkmj2gc",
+      "id": "fld_u1cbhcv5qo"
+    },
+    {
+      "name": "industry",
+      "label": "%industry%",
+      "type": "link",
+      "target": "crm.crm_industry",
+      "target_id": "mdl_qd0w6dyq5v",
+      "id": "fld_gq4val8o0y"
+    },
+    {
+      "name": "territory",
+      "label": "%territory%",
+      "type": "link",
+      "target": "crm.crm_territory",
+      "target_id": "mdl_m7et8bwa4v",
+      "id": "fld_3g4cfa9x5e"
+    },
+    {
+      "name": "team",
+      "label": "%team%",
+      "type": "link",
+      "target": "crm.crm_team",
+      "target_id": "mdl_smo1471c7c",
+      "id": "fld_z2t1tqifkd"
+    },
+    {
+      "name": "owner",
+      "label": "%owner%",
+      "type": "string",
+      "max_length": 128,
+      "id": "fld_4xxhqp6x89"
+    },
+    {
+      "name": "stage",
+      "label": "%stage%",
+      "type": "link",
+      "required": true,
+      "target": "crm.crm_stage",
+      "target_id": "mdl_sw0p12c9nr",
+      "index": "plain",
+      "id": "fld_a96ue31p2g"
+    },
+    {
+      "name": "utm_source",
+      "label": "%utm_source%",
+      "type": "string",
+      "max_length": 100,
+      "id": "fld_i3k621oq3m"
+    },
+    {
+      "name": "utm_medium",
+      "label": "%utm_medium%",
+      "type": "string",
+      "max_length": 100,
+      "id": "fld_55fu6colve"
+    },
+    {
+      "name": "utm_campaign",
+      "label": "%utm_campaign%",
+      "type": "string",
+      "max_length": 100,
+      "id": "fld_bkz3c13gqn"
+    },
+    {
+      "name": "converted_deal",
+      "label": "%converted_deal%",
+      "type": "string",
+      "max_length": 128,
+      "id": "fld_ri4yajy57f"
+    },
+    {
+      "name": "lost_reason",
+      "label": "%lost_reason%",
+      "type": "link",
+      "target": "crm.crm_lost_reason",
+      "target_id": "mdl_ialr466y0d",
+      "id": "fld_m9qyg3dz4u"
+    },
+    {
+      "name": "lost_notes",
+      "label": "%lost_notes%",
+      "type": "text",
+      "id": "fld_90nosimlzj"
+    },
+    {
+      "name": "score",
+      "label": "%score%",
+      "type": "int",
+      "id": "fld_s74olter02"
+    },
+    {
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true,
+      "id": "fld_dose8e7g1e"
+    }
+  ],
+  "view": {
+    "list": [
+      "number",
+      "title",
+      "stage",
+      "owner",
+      "source"
+    ]
+  }
+}

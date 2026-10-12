@@ -1,0 +1,59 @@
+[plugin]
+name = "crm_sla"
+icon_path = "assets/logo.svg"
+label = "CRM SLA"
+version = "0.1.0"
+description = "Response-time policies and clocks on leads and deals."
+long_description = """
+Response-time policies and clocks on leads and deals. Written in Rust.
+See docs/design.md in this plugin (crm_sla/docs/design.md).
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["crm", "crm_lead", "crm_deal", "calendar"]
+capabilities = ["db::query", "db::mutate", "events::emit", "events::subscribe", "plugins::call"]
+access_models = [
+  { name = "sla_policy", permissions = ["read", "write"] },
+  { name = "sla_clock", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[roles]]
+name = "crm_user"
+label = "CRM user"
+description = "Starts clocks and marks first response."
+
+[[roles]]
+name = "crm_admin"
+label = "CRM administrator"
+description = "Defines and applies SLA policies."
+
+[[events]]
+name = "sla_breached"
+
+[[events]]
+name = "crm_lead.lead_created"
+direction = "listen"
+handler = "on_lead_created"
+
+[[events]]
+name = "crm_lead.lead_converted"
+direction = "listen"
+handler = "on_lead_converted"
+
+[[schedule]]
+name = "sla-tick"
+function = "sla_tick"
+cron = "*/15 * * * *"
+
+[app]
+icon = "clock"
+route = "/crm/sla"
+description = "Response-time policies and clocks on leads and deals."
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "crm"

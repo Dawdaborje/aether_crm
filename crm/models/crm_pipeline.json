@@ -1,0 +1,52 @@
+{
+  "model_id": "mdl_i0iojjup5o",
+  "name": "crm_pipeline",
+  "label": "%pipeline%",
+  "plural_label": "%pipelines%",
+  "icon": "git-branch",
+  "title_field": "name",
+  "fields": [
+    {
+      "name": "code",
+      "label": "%code%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique",
+      "id": "fld_hsf2ofijmt"
+    },
+    {
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "id": "fld_6fzv82dlf5"
+    },
+    {
+      "name": "company",
+      "label": "%company%",
+      "type": "link",
+      "required": true,
+      "target": "company.company",
+      "target_id": "mdl_d7q6tyyshp",
+      "index": "plain",
+      "id": "fld_fzzxflf922"
+    },
+    {
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true,
+      "id": "fld_chh6q5wm3c"
+    }
+  ],
+  "view": {
+    "list": [
+      "code",
+      "name",
+      "company",
+      "active"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+[workspace]
+name = "crm"
+label = "Customer Relationship Management"
+version = "0.1.0"
+description = "Leads, deals, customers, activities, SLA, campaigns and CRM reporting."
+long_description = """
+CRM addons for Aether. Identity is party-owned; the pipeline is an append-only stage history;
+a won deal hands off to selling via events.
+See README.md and each plugin's docs/design.md. 
+"""
+group_label = "CRM"
+
+# Member plugins. Domain logic: Phase A first, then B, then C (see README.md).
+[workspace.plugins]
+crm = { path = "./crm" }
+crm_customer = { path = "./crm_customer" }
+crm_lead = { path = "./crm_lead" }
+crm_deal = { path = "./crm_deal" }
+crm_activity = { path = "./crm_activity" }
+crm_sla = { path = "./crm_sla" }
+crm_call = { path = "./crm_call" }
+crm_comms = { path = "./crm_comms" }
+crm_campaign = { path = "./crm_campaign" }
+crm_intake = { path = "./crm_intake" }
+crm_target = { path = "./crm_target" }
+crm_report = { path = "./crm_report" }

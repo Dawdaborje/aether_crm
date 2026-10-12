@@ -1,0 +1,32 @@
+{
+  "model_id": "mdl_pysvyn0143",
+  "name": "crm_tag",
+  "label": "%tag%",
+  "plural_label": "%tags%",
+  "icon": "hash",
+  "title_field": "name",
+  "fields": [
+    {
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 100,
+      "index": "unique",
+      "id": "fld_z6gey3rv4q"
+    },
+    {
+      "name": "color",
+      "label": "%color%",
+      "type": "string",
+      "max_length": 32,
+      "id": "fld_057f0220xs"
+    }
+  ],
+  "view": {
+    "list": [
+      "name",
+      "color"
+    ]
+  }
+}

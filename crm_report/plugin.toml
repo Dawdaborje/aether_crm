@@ -1,0 +1,40 @@
+[plugin]
+name = "crm_report"
+icon_path = "assets/logo.svg"
+label = "CRM reports"
+version = "0.1.0"
+description = "Pipeline funnels, conversion rates and stage-duration metrics."
+long_description = """
+Pipeline funnels, conversion rates and stage-duration metrics. Written in Rust.
+See docs/design.md in this plugin (crm_report/docs/design.md).
+"""
+authors = [{ name = "Aether", email = "hello@aether.local" }]
+dependencies = ["crm", "crm_lead", "crm_deal"]
+capabilities = ["db::query", "db::mutate", "events::emit", "plugins::call"]
+access_models = [
+  { name = "saved_funnel", permissions = ["read", "write"] },
+]
+is_builtin = false
+wasm_file = "out/plugin.wasm"
+
+[[roles]]
+name = "crm_user"
+label = "CRM user"
+description = "Runs CRM reports."
+
+[[roles]]
+name = "crm_admin"
+label = "CRM administrator"
+description = "Full CRM reporting."
+
+[app]
+icon = "chart-column"
+route = "/crm/reports"
+description = "Pipeline funnels, conversion rates and stage-duration metrics."
+
+[plugin.api]
+version = "0.1"
+
+[plugin.meta]
+kind = "addon"
+workspace = "crm"
