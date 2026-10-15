@@ -1,3 +1,13 @@
-<page route="/crm/targets" title="Sales targets">
-  <header title="Sales targets"/>
+<page route="/crm/targets" title="Targets" model="sales_target" icon="target" sort="86" roles="crm_user,crm_admin">
+  <view type="list" model="sales_target" source="list_targets" page_size="25">
+    <columns>
+      <column field="name" label="Target"/>
+      <column field="owner" label="Owner"/>
+      <column field="period_start" label="From" sortable="true"/>
+      <column field="period_end" label="To" sortable="true"/>
+      <column field="amount" label="Amount"/>
+      <column field="active" label="Active"/>
+    </columns>
+    <empty title="No targets yet" description="Sales targets set for a period appear here."/>
+  </view>
 </page>

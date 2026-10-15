@@ -1,0 +1,18 @@
+<page route="/crm/customers/{id}" title="Customer" model="customer" menu="false" roles="crm_user,crm_admin">
+  <buttonbox>
+    <button label="Back to customers" href="/crm/customers" variant="outline"/>
+  </buttonbox>
+  <use component="base_ui.status_bar" field="lifecycle" function="set_customer"/>
+  <view type="form" source="get_customer" function="set_customer" submit="Save" success="Saved">
+    <group title="Customer" cols="2">
+      <field name="lifecycle" label="Lifecycle"/>
+      <field name="segment" label="Segment"/>
+      <field name="owner" label="Owner"/>
+      <field name="active" label="Active"/>
+    </group>
+    <group title="Coverage" cols="2">
+      <field name="team" label="Team" source="crm.search_teams" entity="teams"/>
+      <field name="territory" label="Territory" source="crm.search_territories" entity="territories"/>
+    </group>
+  </view>
+</page>

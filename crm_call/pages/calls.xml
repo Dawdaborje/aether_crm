@@ -1,3 +1,3 @@
-<page route="/crm/calls" title="Call log">
+<page route="/crm/calls" title="Call log" icon="phone" sort="50">
   <header title="Call log"/>
 </page>

@@ -1,0 +1,12 @@
+<page route="/crm/teams" title="Teams" model="crm_team" menu="false" icon="users" sort="60">
+  <view type="list" model="crm_team" source="search_teams" create="/crm/teams/new" create_label="New team">
+    <search/>
+    <columns>
+      <column field="code" label="Code"/>
+      <column field="name" label="Name"/>
+      <column field="company" label="Company"/>
+      <column field="active" label="Active" fieldType="boolean"/>
+    </columns>
+    <empty title="No teams yet" description="Use New to add one."/>
+  </view>
+</page>

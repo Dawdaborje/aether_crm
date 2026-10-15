@@ -1,8 +1,8 @@
 [plugin]
 name = "crm"
 icon_path = "assets/logo.svg"
-label = "CRM setup"
-version = "0.1.0"
+label = "CRM"
+version = "0.1.1"
 description = "Sources, industries, lost reasons, tags, territories, teams, pipelines and stages."
 long_description = """
 Sources, industries, lost reasons, tags, territories, teams, pipelines and stages. Written in Rust.
@@ -38,9 +38,10 @@ label = "CRM reader"
 description = "Reads CRM masters, pipelines and stages."
 
 [app]
-icon = "settings"
-route = "/crm/setup"
-description = "Sources, industries, lost reasons, tags, territories, teams, pipelines and stages."
+label = "CRM"
+icon = "handshake"
+route = "/crm"
+description = "Leads, deals, customers and CRM setup."
 
 [plugin.api]
 version = "0.1"

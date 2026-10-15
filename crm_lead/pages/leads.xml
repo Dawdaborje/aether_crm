@@ -1,3 +1,17 @@
-<page route="/crm/leads" title="Leads">
-  <header title="Leads"/>
+<page route="/crm/leads" title="Leads" model="lead" icon="user-plus" sort="10" roles="crm_user,crm_admin">
+  <view type="list" model="lead" source="search_leads" open="/crm/leads/{id}"
+        create="/crm/leads/new" create_label="New lead" page_size="25">
+    <search fields="title,number,person_name,org_name,email"/>
+    <columns>
+      <column field="number" label="No." sortable="true"/>
+      <column field="title" label="Lead" sortable="true"/>
+      <column field="person_name" label="Contact"/>
+      <column field="org_name" label="Organization"/>
+      <column field="email" label="Email"/>
+      <column field="phone" label="Phone"/>
+      <column field="score" label="Score" sortable="true"/>
+      <column field="active" label="Active"/>
+    </columns>
+    <empty title="No leads yet" description="Use New lead to record a prospect."/>
+  </view>
 </page>

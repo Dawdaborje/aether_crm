@@ -1,0 +1,23 @@
+<page route="/crm/deals/new" title="New deal" model="deal" menu="false" roles="crm_user,crm_admin">
+  <view type="form" function="create_deal" submit="Create deal" success="Deal created" redirect="/crm/deals">
+    <group title="Deal" cols="2">
+      <field name="title" label="Title" required="true"/>
+      <field name="company" label="Company" required="true" source="company.list_companies" optionLabel="name" entity="companies"/>
+      <field name="pipeline" label="Pipeline" source="crm.search_pipelines" entity="pipelines"/>
+      <field name="stage" label="Stage" source="crm.search_stages" entity="stages"/>
+    </group>
+    <group title="Forecast" cols="3">
+      <field name="expected_value" label="Expected value"/>
+      <field name="currency" label="Currency" source="currency.list_currencies" optionLabel="display_name" entity="currencies"/>
+      <field name="expected_close" label="Expected close"/>
+    </group>
+    <group title="People" cols="2">
+      <field name="contact_party" label="Contact" source="party.list_parties" optionLabel="display_name" entity="contacts"/>
+      <field name="org_party" label="Organization" source="party.list_parties" optionLabel="display_name" entity="organizations"/>
+      <field name="owner" label="Owner"/>
+      <field name="team" label="Team" source="crm.search_teams" entity="teams"/>
+      <field name="territory" label="Territory" source="crm.search_territories" entity="territories"/>
+      <field name="source" label="Source" source="crm.search_sources" entity="sources"/>
+    </group>
+  </view>
+</page>

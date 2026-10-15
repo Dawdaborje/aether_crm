@@ -2,14 +2,14 @@
 name = "crm_deal"
 icon_path = "assets/logo.svg"
 label = "Deals"
-version = "0.1.0"
+version = "0.1.1"
 description = "Opportunities, lines, append-only pipeline events, win and lose."
 long_description = """
 Opportunities, lines, append-only pipeline events, win and lose. Written in Rust.
 See docs/design.md in this plugin (crm_deal/docs/design.md).
 """
 authors = [{ name = "Aether", email = "hello@aether.local" }]
-dependencies = ["crm", "crm_customer", "party", "company", "currency"]
+dependencies = ["crm", "crm_customer", "party", "company", "currency", "base_ui"]
 capabilities = ["db::query", "db::mutate", "events::emit", "events::subscribe", "plugins::call"]
 access_models = [
   { name = "deal", permissions = ["read", "write"] },

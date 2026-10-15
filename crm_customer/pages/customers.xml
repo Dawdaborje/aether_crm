@@ -1,3 +1,12 @@
-<page route="/crm/customers" title="Customers">
-  <header title="Customers"/>
+<page route="/crm/customers" title="Customers" model="customer" icon="building-2" sort="30" roles="crm_user,crm_admin">
+  <view type="list" model="customer" source="search_customers" open="/crm/customers/{id}" page_size="25">
+    <search fields="segment,owner"/>
+    <columns>
+      <column field="lifecycle" label="Lifecycle"/>
+      <column field="segment" label="Segment"/>
+      <column field="owner" label="Owner"/>
+      <column field="active" label="Active"/>
+    </columns>
+    <empty title="No customers yet" description="Customers appear when a deal is won."/>
+  </view>
 </page>

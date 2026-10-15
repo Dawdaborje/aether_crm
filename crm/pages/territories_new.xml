@@ -1,0 +1,8 @@
+<page route="/crm/territories/new" title="New territory" model="crm_territory" menu="false">
+  <view type="form" function="create_territory" submit="Add territory" success="Territory added" redirect="/crm/territories">
+    <field name="code" label="Code" required="true"/>
+    <field name="name" label="Name" required="true"/>
+    <field name="parent" label="Parent territory"/>
+    <field name="manager" label="Manager"/>
+  </view>
+</page>

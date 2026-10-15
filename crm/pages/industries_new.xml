@@ -1,0 +1,6 @@
+<page route="/crm/industries/new" title="New Industry" model="crm_industry" menu="false">
+  <view type="form" function="create_industry" submit="Add Industry" success="Industry added" redirect="/crm/industries">
+    <field name="code" label="Code" required="true"/>
+    <field name="name" label="Name" required="true"/>
+  </view>
+</page>

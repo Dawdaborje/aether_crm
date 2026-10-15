@@ -1,0 +1,10 @@
+<page route="/crm/tags" title="Tags" model="crm_tag" menu="false" icon="hash" sort="40">
+  <view type="list" model="crm_tag" source="search_tags" create="/crm/tags/new" create_label="New tag">
+    <search/>
+    <columns>
+      <column field="name" label="Name"/>
+      <column field="color" label="Color"/>
+    </columns>
+    <empty title="No tags yet" description="Use New to add one."/>
+  </view>
+</page>

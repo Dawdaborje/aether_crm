@@ -1,6 +1,6 @@
 //! Helpers shared by the parts of the plugin.
 
-pub use aether_sdk::records::{id_of, require, text, Record};
+pub use aether_sdk::records::{id_of, require, Record};
 
 use aether_sdk::prelude::*;
 

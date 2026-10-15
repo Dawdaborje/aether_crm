@@ -1,3 +1,16 @@
-<page route="/crm/deals" title="Deals">
-  <header title="Deals"/>
+<page route="/crm/deals" title="Deals" model="deal" icon="handshake" sort="20" roles="crm_user,crm_admin">
+  <view type="list" model="deal" source="search_deals" open="/crm/deals/{id}"
+        create="/crm/deals/new" create_label="New deal" page_size="25">
+    <search fields="title,number,owner"/>
+    <columns>
+      <column field="number" label="No." sortable="true"/>
+      <column field="title" label="Deal" sortable="true"/>
+      <column field="expected_value" label="Expected value" sortable="true"/>
+      <column field="probability" label="Probability %"/>
+      <column field="expected_close" label="Expected close" sortable="true"/>
+      <column field="owner" label="Owner"/>
+      <column field="active" label="Active"/>
+    </columns>
+    <empty title="No deals yet" description="Convert a lead, or use New deal."/>
+  </view>
 </page>

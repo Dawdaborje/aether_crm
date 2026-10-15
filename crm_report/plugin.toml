@@ -10,7 +10,7 @@ See docs/design.md in this plugin (crm_report/docs/design.md).
 """
 authors = [{ name = "Aether", email = "hello@aether.local" }]
 dependencies = ["crm", "crm_lead", "crm_deal"]
-capabilities = ["db::query", "db::mutate", "events::emit", "plugins::call"]
+capabilities = ["db::query", "db::mutate", "events::emit", "plugins::call", "report::query", "report::export"]
 access_models = [
   { name = "saved_funnel", permissions = ["read", "write"] },
 ]

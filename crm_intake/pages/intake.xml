@@ -1,3 +1,11 @@
-<page route="/crm/intake" title="Lead intake">
-  <header title="Lead intake"/>
+<page route="/crm/intake" title="Lead intake" model="intake_form" icon="form-input" sort="80" roles="crm_user,crm_admin">
+  <view type="list" model="intake_form" source="list_forms" page_size="25">
+    <columns>
+      <column field="key" label="Key"/>
+      <column field="name" label="Form"/>
+      <column field="create_mode" label="Creates"/>
+      <column field="active" label="Active"/>
+    </columns>
+    <empty title="No intake forms yet" description="Forms collect leads from your website."/>
+  </view>
 </page>

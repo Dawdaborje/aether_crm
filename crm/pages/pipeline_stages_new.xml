@@ -1,0 +1,9 @@
+<page route="/crm/pipelines/{id}/stages/new" title="New stage" model="crm_stage" menu="false">
+  <view type="form" function="create_stage" submit="Add stage" success="Stage added" redirect="/crm/pipelines/{id}/stages">
+    <field name="name" label="Name" required="true"/>
+    <field name="sequence" label="Sequence" fieldType="integer"/>
+    <field name="kind" label="Kind" fieldType="selection" options="open, hold, won, lost, converted"/>
+    <field name="default_probability" label="Default probability" fieldType="float"/>
+    <field name="fold" label="Fold" fieldType="boolean"/>
+  </view>
+</page>

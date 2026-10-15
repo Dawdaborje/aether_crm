@@ -2,7 +2,7 @@
 name = "crm_intake"
 icon_path = "assets/logo.svg"
 label = "Lead intake"
-version = "0.1.0"
+version = "0.1.1"
 description = "Inbound forms and website-to-lead (or deal) creation."
 long_description = """
 Inbound forms and website-to-lead (or deal) creation. Written in Rust.

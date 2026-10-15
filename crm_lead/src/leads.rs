@@ -250,6 +250,14 @@ fn do_set_lead(input: SetLead) -> Result<Record> {
     db::update("lead", &input.id, &changes)?.ok_or_else(|| Error::msg("the lead is gone"))
 }
 
+fn do_lead_stage_options(input: Id) -> Result<Vec<Record>> {
+    let lead = require("lead", &input.id, "lead")?;
+    let Some(stage_id) = text(&lead, "stage") else { return Ok(Vec::new()) };
+    let stage = require("crm.crm_stage", stage_id, "stage")?;
+    let Some(pipeline) = text(&stage, "pipeline") else { return Ok(Vec::new()) };
+    plugins::call("crm", "list_stages", &json!({ "id": pipeline }))
+}
+
 fn do_set_stage(input: SetStage) -> Result<Record> {
     require_user()?;
     let lead = require("lead", &input.id, "lead")?;
@@ -522,6 +530,8 @@ handler! {
     fn create_lead(input: CreateLead) -> Record { do_create_lead(input) }
     fn set_lead(input: SetLead) -> Record { do_set_lead(input) }
     fn set_stage(input: SetStage) -> Record { do_set_stage(input) }
+    /// The stages of the pipeline the lead's current stage belongs to, in order (for the state bar).
+    fn lead_stage_options(input: Id) -> Vec<Record> { do_lead_stage_options(input) }
     fn lose_lead(input: LoseLead) -> Record { do_lose_lead(input) }
     fn convert(input: ConvertInput) -> Record { do_convert(input) }
     fn get_lead(input: Id) -> Record { do_get_lead(input) }

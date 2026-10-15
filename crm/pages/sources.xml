@@ -1,0 +1,11 @@
+<page route="/crm/sources" title="Sources" model="crm_source" menu="false" icon="tag" sort="10">
+  <view type="list" model="crm_source" source="search_sources" create="/crm/sources/new" create_label="New source">
+    <search/>
+    <columns>
+      <column field="code" label="Code"/>
+      <column field="name" label="Name"/>
+      <column field="active" label="Active" fieldType="boolean"/>
+    </columns>
+    <empty title="No sources yet" description="Use New to add one."/>
+  </view>
+</page>

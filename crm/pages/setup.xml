@@ -1,3 +1,14 @@
-<page route="/crm/setup" title="CRM setup">
-  <header title="CRM setup"/>
+<page route="/crm/setup" title="Setup" icon="settings" sort="90">
+  <header title="CRM setup" subtitle="Create the masters your team needs before working leads and deals."/>
+  <group title="Masters">
+    <buttonbox>
+      <button label="Sources" href="/crm/sources" variant="secondary"/>
+      <button label="Industries" href="/crm/industries" variant="secondary"/>
+      <button label="Lost reasons" href="/crm/lost-reasons" variant="secondary"/>
+      <button label="Tags" href="/crm/tags" variant="secondary"/>
+      <button label="Territories" href="/crm/territories" variant="secondary"/>
+      <button label="Teams" href="/crm/teams" variant="secondary"/>
+      <button label="Pipelines" href="/crm/pipelines" variant="secondary"/>
+    </buttonbox>
+  </group>
 </page>

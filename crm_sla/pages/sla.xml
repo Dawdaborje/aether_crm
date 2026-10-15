@@ -1,3 +1,13 @@
-<page route="/crm/sla" title="CRM SLA">
-  <header title="CRM SLA"/>
+<page route="/crm/sla" title="SLA" model="sla_policy" icon="clock" sort="85" roles="crm_user,crm_admin">
+  <view type="list" model="sla_policy" source="search_policies" page_size="25">
+    <columns>
+      <column field="code" label="Code"/>
+      <column field="name" label="Policy"/>
+      <column field="apply_on" label="Applies to"/>
+      <column field="first_response_hours" label="First response (hours)"/>
+      <column field="priority" label="Priority"/>
+      <column field="active" label="Active"/>
+    </columns>
+    <empty title="No SLA policies yet" description="A policy sets how fast a first response is due."/>
+  </view>
 </page>

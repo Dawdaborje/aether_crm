@@ -104,7 +104,11 @@ struct SetPipeline {
 
 #[derive(Deserialize)]
 struct StageInput {
-    pipeline: String,
+    /// Pipeline id; also accepts route param `id` from `/crm/pipelines/{id}/stages/new`.
+    #[serde(default)]
+    pipeline: Option<String>,
+    #[serde(default)]
+    id: Option<String>,
     name: String,
     #[serde(default)]
     sequence: Option<i64>,
@@ -457,7 +461,14 @@ fn do_search_pipelines(input: Search) -> Result<Vec<Record>> {
 
 fn do_create_stage(input: StageInput) -> Result<Record> {
     require_admin()?;
-    let pipeline = require("crm_pipeline", &input.pipeline, "pipeline")?;
+    let pipeline_key = input
+        .pipeline
+        .as_deref()
+        .or(input.id.as_deref())
+        .map(str::trim)
+        .filter(|v| !v.is_empty())
+        .ok_or_else(|| Error::msg("pipeline is required"))?;
+    let pipeline = require("crm_pipeline", pipeline_key, "pipeline")?;
     let kind = kind_or(input.kind.as_deref(), "open")?;
     let probability = input.default_probability.unwrap_or_else(|| Decimal::zero(2));
     let hundred = Decimal::whole(100, 2)?;
@@ -507,6 +518,55 @@ fn do_set_stage(input: SetStage) -> Result<Record> {
 
 fn do_get_stage(input: Id) -> Result<Record> {
     get_one("crm_stage", "stage", input)
+}
+
+/// Every open stage of every pipeline, each with a `display_name` such as `Sales · Qualified`,
+/// for a picker where the pipeline is not chosen first (a lead's or deal's stage).
+fn do_search_stages(input: Search) -> Result<Vec<Record>> {
+    require_reader()?;
+    let pipelines = db::find::<Record>("crm_pipeline").limit(200).all()?;
+    let mut names = std::collections::HashMap::new();
+    for pipeline in &pipelines {
+        if pipeline.get("active") == Some(&json!(false)) {
+            continue;
+        }
+        if let (Some(id), Some(name)) = (
+            pipeline.get("id").and_then(Value::as_str),
+            pipeline.get("name").and_then(Value::as_str),
+        ) {
+            names.insert(id.to_string(), name.to_string());
+        }
+    }
+    let mut stages = db::find::<Record>("crm_stage").limit(500).all()?;
+    stages.retain(|stage| stage.get("active") != Some(&json!(false)));
+    let mut rows = Vec::new();
+    for mut stage in stages {
+        let Some(pipeline) = stage.get("pipeline").and_then(Value::as_str).and_then(|id| names.get(id)) else {
+            continue;
+        };
+        let name = stage.get("name").and_then(Value::as_str).unwrap_or("Stage");
+        let label = format!("{pipeline} · {name}");
+        stage["display_name"] = json!(label);
+        rows.push(stage);
+    }
+    if let Some(needle) = input.q.as_deref().map(str::trim).filter(|q| !q.is_empty()) {
+        let needle = needle.to_lowercase();
+        rows.retain(|row| {
+            row.get("display_name")
+                .and_then(Value::as_str)
+                .is_some_and(|label| label.to_lowercase().contains(&needle))
+        });
+    }
+    rows.sort_by(|a, b| {
+        let key = |row: &Record| {
+            (
+                row.get("display_name").and_then(Value::as_str).unwrap_or("").to_string(),
+                row.get("sequence").and_then(Value::as_i64),
+            )
+        };
+        key(a).cmp(&key(b))
+    });
+    Ok(rows)
 }
 
 fn do_list_stages(input: Id) -> Result<Vec<Record>> {
@@ -666,6 +726,7 @@ handler! {
     fn set_stage(input: SetStage) -> Record { do_set_stage(input) }
     fn get_stage(input: Id) -> Record { do_get_stage(input) }
     fn list_stages(input: Id) -> Vec<Record> { do_list_stages(input) }
+    fn search_stages(input: Search) -> Vec<Record> { do_search_stages(input) }
 
     fn set_company_settings(input: CompanySettingsInput) -> Record { do_set_company_settings(input) }
     fn get_company_settings(input: Id) -> Record { do_get_company_settings(input) }

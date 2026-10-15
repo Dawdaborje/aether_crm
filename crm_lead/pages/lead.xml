@@ -1,0 +1,34 @@
+<page route="/crm/leads/{id}" title="Lead" model="lead" menu="false" roles="crm_user,crm_admin">
+  <buttonbox>
+    <button label="Convert to deal" function="convert" idparam="lead" variant="default"
+            confirm="Convert this lead to a deal?" redirect="/crm/deals"/>
+    <button label="Back to leads" href="/crm/leads" variant="outline"/>
+  </buttonbox>
+  <use component="base_ui.status_bar" field="stage" source="lead_stage_options" optionlabel="name"
+       function="set_stage"/>
+  <view type="form" source="get_lead" function="set_lead" submit="Save" success="Saved">
+    <group title="Lead" cols="2">
+      <field name="title" label="Title" required="true"/>
+      <field name="score" label="Score"/>
+      <field name="active" label="Active"/>
+    </group>
+    <group title="Contact" cols="2">
+      <field name="person_name" label="Person"/>
+      <field name="org_name" label="Organization"/>
+      <field name="email" label="Email"/>
+      <field name="phone" label="Phone"/>
+    </group>
+    <group title="Where it came from" cols="2">
+      <field name="source" label="Source" source="crm.search_sources" entity="sources"/>
+      <field name="industry" label="Industry" source="crm.search_industries" entity="industries"/>
+      <field name="territory" label="Territory" source="crm.search_territories" entity="territories"/>
+      <field name="team" label="Team" source="crm.search_teams" entity="teams"/>
+      <field name="owner" label="Owner"/>
+    </group>
+    <group title="Campaign tracking" cols="3">
+      <field name="utm_source" label="UTM source"/>
+      <field name="utm_medium" label="UTM medium"/>
+      <field name="utm_campaign" label="UTM campaign"/>
+    </group>
+  </view>
+</page>

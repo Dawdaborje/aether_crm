@@ -1,0 +1,9 @@
+<page route="/crm" title="CRM" icon="handshake" sort="1" menu="false">
+  <header title="CRM" subtitle="Work leads and deals, or configure masters under Setup."/>
+  <buttonbox>
+    <button label="Leads" href="/crm/leads" variant="secondary"/>
+    <button label="Deals" href="/crm/deals" variant="secondary"/>
+    <button label="Customers" href="/crm/customers" variant="secondary"/>
+    <button label="Setup" href="/crm/setup" variant="outline"/>
+  </buttonbox>
+</page>

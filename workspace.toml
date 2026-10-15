@@ -9,6 +9,7 @@ a won deal hands off to selling via events.
 See README.md and each plugin's docs/design.md. 
 """
 group_label = "CRM"
+group_icon = "./assets/crm.svg"
 
 # Member plugins. Domain logic: Phase A first, then B, then C (see README.md).
 [workspace.plugins]

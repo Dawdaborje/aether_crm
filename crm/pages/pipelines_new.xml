@@ -1,0 +1,7 @@
+<page route="/crm/pipelines/new" title="New pipeline" model="crm_pipeline" menu="false">
+  <view type="form" function="create_pipeline" submit="Add pipeline" success="Pipeline added" redirect="/crm/pipelines">
+    <field name="code" label="Code" required="true"/>
+    <field name="name" label="Name" required="true"/>
+    <field name="company" label="Company" required="true"/>
+  </view>
+</page>

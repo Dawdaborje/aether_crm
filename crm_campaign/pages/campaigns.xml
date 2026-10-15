@@ -1,3 +1,15 @@
-<page route="/crm/campaigns" title="Campaigns">
-  <header title="Campaigns"/>
+<page route="/crm/campaigns" title="Campaigns" model="campaign" icon="megaphone" sort="70" roles="crm_user,crm_admin">
+  <view type="list" model="campaign" source="search_campaigns" create="/crm/campaigns/new"
+        create_label="New campaign" page_size="25">
+    <search fields="code,name"/>
+    <columns>
+      <column field="code" label="Code" sortable="true"/>
+      <column field="name" label="Campaign" sortable="true"/>
+      <column field="channel" label="Channel"/>
+      <column field="starts_on" label="Starts" sortable="true"/>
+      <column field="ends_on" label="Ends"/>
+      <column field="active" label="Active"/>
+    </columns>
+    <empty title="No campaigns yet" description="Use New campaign to start tracking one."/>
+  </view>
 </page>

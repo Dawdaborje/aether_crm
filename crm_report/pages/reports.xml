@@ -1,3 +1,15 @@
-<page route="/crm/reports" title="CRM reports">
-  <header title="CRM reports"/>
+<page route="/crm/reports" title="Reports" icon="chart-column" sort="87">
+  <header title="Reports">
+    <button label="Download Excel" function="export_report" format="xlsx"/>
+    <button label="Download PDF" function="export_report" format="pdf"/>
+  </header>
+  <view type="dashboard" source="reports_dashboard">
+    <stat label="Leads" field="leads"/>
+    <stat label="Lead to deal %" field="lead_to_deal_pct"/>
+    <stat label="Win %" field="win_pct"/>
+    <stat label="Open past close" field="open_past_close"/>
+    <stat label="Average slip (days)" field="avg_slip_days"/>
+    <stat label="Preview" field="preview_note"/>
+    <chart type="bar" title="Funnel" field="funnel" category="name" value="value"/>
+  </view>
 </page>

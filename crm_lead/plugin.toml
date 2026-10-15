@@ -2,14 +2,14 @@
 name = "crm_lead"
 icon_path = "assets/logo.svg"
 label = "Leads"
-version = "0.1.0"
+version = "0.1.1"
 description = "Unqualified prospects and idempotent convert to deal."
 long_description = """
 Unqualified prospects and idempotent convert to deal. Written in Rust.
 See docs/design.md in this plugin (crm_lead/docs/design.md).
 """
 authors = [{ name = "Aether", email = "hello@aether.local" }]
-dependencies = ["crm", "crm_customer", "crm_deal", "party", "company"]
+dependencies = ["crm", "crm_customer", "crm_deal", "party", "company", "base_ui"]
 capabilities = ["db::query", "db::mutate", "events::emit", "events::subscribe", "plugins::call"]
 access_models = [
   { name = "lead", permissions = ["read", "write"] },

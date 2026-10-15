@@ -2,7 +2,7 @@
 name = "crm_campaign"
 icon_path = "assets/logo.svg"
 label = "Campaigns"
-version = "0.1.0"
+version = "0.1.1"
 description = "Campaigns and UTM attribution on leads and deals."
 long_description = """
 Campaigns and UTM attribution on leads and deals. Written in Rust.

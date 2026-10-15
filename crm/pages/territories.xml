@@ -1,0 +1,11 @@
+<page route="/crm/territories" title="Territories" model="crm_territory" menu="false" icon="map" sort="50">
+  <view type="list" model="crm_territory" source="search_territories" create="/crm/territories/new" create_label="New territory">
+    <search/>
+    <columns>
+      <column field="code" label="Code"/>
+      <column field="name" label="Name"/>
+      <column field="active" label="Active" fieldType="boolean"/>
+    </columns>
+    <empty title="No territories yet" description="Use New to add one."/>
+  </view>
+</page>

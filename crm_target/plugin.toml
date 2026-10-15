@@ -2,7 +2,7 @@
 name = "crm_target"
 icon_path = "assets/logo.svg"
 label = "Sales targets"
-version = "0.1.0"
+version = "0.1.1"
 description = "Team and rep quotas versus won revenue."
 long_description = """
 Team and rep quotas versus won revenue. Written in Rust.

@@ -2,7 +2,7 @@
 name = "crm_sla"
 icon_path = "assets/logo.svg"
 label = "CRM SLA"
-version = "0.1.0"
+version = "0.1.1"
 description = "Response-time policies and clocks on leads and deals."
 long_description = """
 Response-time policies and clocks on leads and deals. Written in Rust.

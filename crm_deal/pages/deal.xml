@@ -1,0 +1,26 @@
+<page route="/crm/deals/{id}" title="Deal" model="deal" menu="false" roles="crm_user,crm_admin">
+  <use component="base_ui.form_bar" field="stage" source="crm.list_stages" sourceparam="pipeline"
+       optionlabel="name" function="set_stage">
+    <button label="Mark won" function="win_deal" variant="outline" confirm="Mark this deal as won?"/>
+    <button label="Reopen" function="reopen_deal" variant="secondary"/>
+    <button label="Back to deals" href="/crm/deals" variant="ghost"/>
+  </use>
+  <view type="form" source="get_deal" function="set_deal" submit="Save" success="Saved">
+    <group title="Deal" cols="2">
+      <field name="title" label="Title" required="true"/>
+      <field name="owner" label="Owner"/>
+      <field name="active" label="Active"/>
+    </group>
+    <group title="Forecast" cols="3">
+      <field name="expected_value" label="Expected value"/>
+      <field name="probability" label="Probability %"/>
+      <field name="expected_close" label="Expected close"/>
+    </group>
+    <group title="People" cols="2">
+      <field name="contact_party" label="Contact" source="party.list_parties" optionLabel="display_name" entity="contacts"/>
+      <field name="org_party" label="Organization" source="party.list_parties" optionLabel="display_name" entity="organizations"/>
+      <field name="team" label="Team" source="crm.search_teams" entity="teams"/>
+      <field name="territory" label="Territory" source="crm.search_territories" entity="territories"/>
+    </group>
+  </view>
+</page>
