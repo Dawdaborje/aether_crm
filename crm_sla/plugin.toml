@@ -43,6 +43,8 @@ handler = "on_lead_converted"
 
 [[schedule]]
 name = "sla-tick"
+title = "Check SLA deadlines"
+description = "Marks open SLA clocks as breached once their response deadline has passed and announces it."
 function = "sla_tick"
 cron = "*/15 * * * *"
 

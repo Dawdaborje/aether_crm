@@ -32,6 +32,8 @@ name = "activity_overdue"
 
 [[schedule]]
 name = "activity-nightly"
+title = "Flag overdue activities"
+description = "Announces open tasks, meetings and calls whose due time has passed."
 function = "activity_nightly"
 cron = "15 1 * * *"
 

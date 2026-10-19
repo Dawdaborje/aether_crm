@@ -27,6 +27,13 @@ access_models = [
 is_builtin = false
 wasm_file = "out/plugin.wasm"
 
+[[command]]
+name = "seed"
+function = "seed_crm"
+help = "Create the starter lead sources, lost reasons and a Sales pipeline with stages (idempotent)"
+on_install = true
+on_upgrade = true
+
 [[roles]]
 name = "crm_admin"
 label = "CRM administrator"

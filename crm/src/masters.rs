@@ -683,7 +683,89 @@ fn do_stage_history(input: SubjectRef) -> Result<Vec<Record>> {
     Ok(rows)
 }
 
+// --- master data seeded on install ---
+
+const SEED_SOURCES: &[(&str, &str)] = &[
+    ("website", "Website"),
+    ("referral", "Referral"),
+    ("cold-call", "Cold call"),
+    ("email", "Email campaign"),
+    ("event", "Event or trade show"),
+    ("social", "Social media"),
+    ("partner", "Partner"),
+];
+
+const SEED_LOST_REASONS: &[(&str, &str)] = &[
+    ("price", "Price too high"),
+    ("competitor", "Chose a competitor"),
+    ("no-budget", "No budget"),
+    ("no-response", "No response"),
+    ("timing", "Bad timing"),
+    ("not-a-fit", "Not a fit"),
+];
+
+/// (name, kind, probability)
+const SEED_STAGES: &[(&str, &str, i64)] = &[
+    ("New", "open", 10),
+    ("Qualified", "open", 25),
+    ("Proposal", "open", 50),
+    ("Negotiation", "open", 75),
+    ("Won", "won", 100),
+    ("Lost", "lost", 0),
+];
+
+fn seed_code_names(model: &str, rows: &[(&str, &str)]) -> Result<u64> {
+    let mut added = 0;
+    for (code, name) in rows {
+        if db::find::<Record>(model).filter("code", *code).first()?.is_some() {
+            continue;
+        }
+        db::create::<Record>(model, &json!({ "code": code, "name": name, "active": true }))?;
+        added += 1;
+    }
+    Ok(added)
+}
+
+/// Create the starter masters that are missing: lead sources, lost reasons and, when the
+/// organization has none, a "Sales" pipeline with its stages for the first company.
+/// Safe to run again; nothing that exists is changed.
+fn do_seed() -> Result<Value> {
+    let sources = seed_code_names("crm_source", SEED_SOURCES)?;
+    let lost_reasons = seed_code_names("crm_lost_reason", SEED_LOST_REASONS)?;
+    let mut stages = 0;
+    let mut pipeline = false;
+    if db::find::<Record>("crm_pipeline").first()?.is_none() {
+        if let Some(company) = db::find::<Record>("company.company").first()? {
+            let created: Record = db::create(
+                "crm_pipeline",
+                &json!({ "code": "sales", "name": "Sales", "company": id_of(&company)?, "active": true }),
+            )?;
+            let pipeline_id = id_of(&created)?.to_string();
+            for (index, (name, kind, probability)) in SEED_STAGES.iter().enumerate() {
+                db::create::<Record>(
+                    "crm_stage",
+                    &json!({
+                        "pipeline": pipeline_id,
+                        "name": name,
+                        "sequence": (index as i64 + 1) * 10,
+                        "kind": kind,
+                        "default_probability": Decimal::whole(*probability, 2)?,
+                        "fold": *kind != "open",
+                        "active": true,
+                    }),
+                )?;
+                stages += 1;
+            }
+            pipeline = true;
+        }
+    }
+    Ok(json!({ "sources": sources, "lost_reasons": lost_reasons, "pipeline": pipeline, "stages": stages }))
+}
+
 handler! {
+    /// Starter sources, lost reasons and a Sales pipeline; runs on install and upgrade.
+    fn seed_crm(_: Empty) -> Value { do_seed() }
+
     fn create_source(input: CodeName) -> Record { do_create_source(input) }
     fn set_source(input: SetCodeName) -> Record { do_set_source(input) }
     fn get_source(input: Id) -> Record { do_get_source(input) }
