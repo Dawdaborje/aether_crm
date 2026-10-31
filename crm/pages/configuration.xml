@@ -1,5 +1,5 @@
-<page route="/crm/setup" title="Setup" icon="settings" sort="90">
-  <header title="CRM setup" subtitle="Create the masters your team needs before working leads and deals."/>
+<page route="/crm/configuration" title="Configuration" icon="settings" sort="90">
+  <header title="CRM configuration" subtitle="Maintain the masters your team relies on when working leads and deals."/>
   <group title="Masters">
     <buttonbox>
       <button label="Sources" href="/crm/sources" variant="secondary"/>

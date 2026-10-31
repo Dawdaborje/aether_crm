@@ -1,4 +1,4 @@
-# CRM setup (`crm`)
+# CRM configuration (`crm`)
 
 ## Purpose
 

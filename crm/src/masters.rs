@@ -762,9 +762,29 @@ fn do_seed() -> Result<Value> {
     Ok(json!({ "sources": sources, "lost_reasons": lost_reasons, "pipeline": pipeline, "stages": stages }))
 }
 
+fn count_of(model: &str) -> Result<i64> {
+    Ok(db::find::<Record>(model).limit(1000).all()?.len() as i64)
+}
+
+fn do_home_summary(_input: Empty) -> Result<Value> {
+    require_reader()?;
+    let stages = count_of("crm_stage")?;
+    let pipelines = count_of("crm_pipeline")?;
+    let sources = count_of("crm_source")?;
+    let teams = count_of("crm_team")?;
+    Ok(json!({
+        "pipelines": pipelines,
+        "stages": stages,
+        "sources": sources,
+        "teams": teams,
+        "configured": if pipelines > 0 && sources > 0 { "Ready" } else { "Needs configuration" },
+    }))
+}
+
 handler! {
     /// Starter sources, lost reasons and a Sales pipeline; runs on install and upgrade.
     fn seed_crm(_: Empty) -> Value { do_seed() }
+    fn home_summary(input: Empty) -> Value { do_home_summary(input) }
 
     fn create_source(input: CodeName) -> Record { do_create_source(input) }
     fn set_source(input: SetCodeName) -> Record { do_set_source(input) }
