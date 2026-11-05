@@ -1,0 +1,3 @@
+<page route="/crm/activities" title="Activities" icon="check-square" sort="40">
+  <header title="Activities"/>
+</page>

@@ -1,0 +1,220 @@
+{
+  "model_id": "mdl_f0yeaf94mf",
+  "name": "deal",
+  "label": "%deal%",
+  "plural_label": "%deals%",
+  "icon": "handshake",
+  "title_field": "title",
+  "fields": [
+    {
+      "name": "number",
+      "label": "%number%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique",
+      "sequence": {
+        "pattern": "DEAL-{#####}",
+        "reset": "yearly"
+      },
+      "id": "fld_lqtpqpe5ly"
+    },
+    {
+      "name": "company",
+      "label": "%company%",
+      "type": "link",
+      "required": true,
+      "target": "company.company",
+      "target_id": "mdl_d7q6tyyshp",
+      "index": "plain",
+      "id": "fld_5vq5g3z7vn"
+    },
+    {
+      "name": "title",
+      "label": "%title%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "id": "fld_lttlka5pb3"
+    },
+    {
+      "id": "fld_l5geux6vpy",
+      "name": "lead",
+      "label": "%lead%",
+      "type": "string",
+      "max_length": 128,
+      "index": "plain",
+      "help": "Lead id when this deal was created by convert (string to avoid plugin cycle)"
+    },
+    {
+      "name": "contact_party",
+      "label": "%contact_party%",
+      "type": "link",
+      "target": "party.party",
+      "target_id": "mdl_mr76tss5ic",
+      "id": "fld_5gt5v7q120"
+    },
+    {
+      "name": "org_party",
+      "label": "%org_party%",
+      "type": "link",
+      "target": "party.party",
+      "target_id": "mdl_mr76tss5ic",
+      "id": "fld_t66obduzdu"
+    },
+    {
+      "name": "customer",
+      "label": "%customer%",
+      "type": "link",
+      "target": "crm_customer.customer",
+      "target_id": "mdl_w5i76vw1dc",
+      "id": "fld_ij3iibp98o"
+    },
+    {
+      "name": "pipeline",
+      "label": "%pipeline%",
+      "type": "link",
+      "required": true,
+      "target": "crm.crm_pipeline",
+      "target_id": "mdl_i0iojjup5o",
+      "index": "plain",
+      "id": "fld_ndhnsxpdwq"
+    },
+    {
+      "name": "stage",
+      "label": "%stage%",
+      "type": "link",
+      "required": true,
+      "target": "crm.crm_stage",
+      "target_id": "mdl_sw0p12c9nr",
+      "index": "plain",
+      "id": "fld_26sqjzbuo4"
+    },
+    {
+      "name": "owner",
+      "label": "%owner%",
+      "type": "string",
+      "max_length": 128,
+      "id": "fld_uxm86qjj3l"
+    },
+    {
+      "name": "team",
+      "label": "%team%",
+      "type": "link",
+      "target": "crm.crm_team",
+      "target_id": "mdl_smo1471c7c",
+      "id": "fld_okbetk1gvr"
+    },
+    {
+      "name": "territory",
+      "label": "%territory%",
+      "type": "link",
+      "target": "crm.crm_territory",
+      "target_id": "mdl_m7et8bwa4v",
+      "id": "fld_bl9z3g5j6w"
+    },
+    {
+      "name": "currency",
+      "label": "%currency%",
+      "type": "link",
+      "target": "currency.currency",
+      "target_id": "mdl_khholv2eis",
+      "id": "fld_ni2sg9m3ky"
+    },
+    {
+      "name": "expected_value",
+      "label": "%expected_value%",
+      "type": "decimal",
+      "scale": 2,
+      "default": "0",
+      "id": "fld_5msm8klwio"
+    },
+    {
+      "name": "probability",
+      "label": "%probability%",
+      "type": "decimal",
+      "scale": 2,
+      "default": "0",
+      "id": "fld_8c5dqrm0um"
+    },
+    {
+      "name": "probability_manual",
+      "label": "%probability_manual%",
+      "type": "bool",
+      "default": false,
+      "id": "fld_resnwlmubz"
+    },
+    {
+      "name": "expected_close",
+      "label": "%expected_close%",
+      "type": "date",
+      "id": "fld_allh0huksr"
+    },
+    {
+      "name": "closed_at",
+      "label": "%closed_at%",
+      "type": "datetime",
+      "id": "fld_gkzc5lhfm5"
+    },
+    {
+      "name": "lost_reason",
+      "label": "%lost_reason%",
+      "type": "link",
+      "target": "crm.crm_lost_reason",
+      "target_id": "mdl_ialr466y0d",
+      "id": "fld_x0csjse8ha"
+    },
+    {
+      "name": "lost_notes",
+      "label": "%lost_notes%",
+      "type": "text",
+      "id": "fld_ldi0kzidyn"
+    },
+    {
+      "name": "source",
+      "label": "%source%",
+      "type": "link",
+      "target": "crm.crm_source",
+      "target_id": "mdl_hajhkmj2gc",
+      "id": "fld_zo8f6l4vo3"
+    },
+    {
+      "name": "utm_source",
+      "label": "%utm_source%",
+      "type": "string",
+      "max_length": 100,
+      "id": "fld_x30w9olfk9"
+    },
+    {
+      "name": "utm_medium",
+      "label": "%utm_medium%",
+      "type": "string",
+      "max_length": 100,
+      "id": "fld_ahme90vkjt"
+    },
+    {
+      "name": "utm_campaign",
+      "label": "%utm_campaign%",
+      "type": "string",
+      "max_length": 100,
+      "id": "fld_y26gxibaan"
+    },
+    {
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true,
+      "id": "fld_q3sb78g3e9"
+    }
+  ],
+  "view": {
+    "list": [
+      "number",
+      "title",
+      "stage",
+      "expected_value",
+      "probability",
+      "owner"
+    ]
+  }
+}

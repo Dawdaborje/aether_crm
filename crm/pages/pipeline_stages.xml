@@ -1,0 +1,12 @@
+<page route="/crm/pipelines/{id}/stages" title="Stages" model="crm_stage" menu="false">
+  <view type="list" model="crm_stage" source="list_stages" create="/crm/pipelines/{id}/stages/new" create_label="New stage">
+    <columns>
+      <column field="name" label="Name"/>
+      <column field="sequence" label="Sequence"/>
+      <column field="kind" label="Kind" fieldType="badge"/>
+      <column field="default_probability" label="Probability"/>
+      <column field="active" label="Active" fieldType="boolean"/>
+    </columns>
+    <empty title="No stages yet" description="Use New to add stages to this pipeline."/>
+  </view>
+</page>

@@ -1,0 +1,49 @@
+{
+  "model_id": "mdl_9tvfavqg3p",
+  "name": "crm_company_settings",
+  "label": "%company_settings%",
+  "plural_label": "%company_settings%",
+  "icon": "settings",
+  "title_field": "company",
+  "fields": [
+    {
+      "name": "company",
+      "label": "%company%",
+      "type": "link",
+      "required": true,
+      "target": "company.company",
+      "target_id": "mdl_d7q6tyyshp",
+      "index": "unique",
+      "id": "fld_fz7h9gcybw"
+    },
+    {
+      "name": "use_leads",
+      "label": "%use_leads%",
+      "type": "bool",
+      "default": true,
+      "id": "fld_bkmjqv7ia6"
+    },
+    {
+      "name": "default_pipeline",
+      "label": "%default_pipeline%",
+      "type": "link",
+      "target": "crm_pipeline",
+      "id": "fld_a3grf8muj0"
+    },
+    {
+      "name": "require_forecast_fields",
+      "label": "%require_forecast_fields%",
+      "type": "bool",
+      "default": false,
+      "id": "fld_81b3qc8bg8"
+    }
+  ],
+  "view": {
+    "list": [
+      "company",
+      "use_leads",
+      "default_pipeline",
+      "require_forecast_fields"
+    ]
+  }
+}

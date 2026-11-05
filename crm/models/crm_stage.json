@@ -1,0 +1,108 @@
+{
+  "model_id": "mdl_sw0p12c9nr",
+  "name": "crm_stage",
+  "label": "%stage%",
+  "plural_label": "%stages%",
+  "icon": "circle-dot",
+  "title_field": "name",
+  "fields": [
+    {
+      "name": "pipeline",
+      "label": "%pipeline%",
+      "type": "link",
+      "required": true,
+      "target": "crm_pipeline",
+      "index": "plain",
+      "id": "fld_ztzc5e9uia"
+    },
+    {
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "id": "fld_fnretmhtj0"
+    },
+    {
+      "name": "sequence",
+      "label": "%sequence%",
+      "type": "int",
+      "required": true,
+      "default": 10,
+      "id": "fld_3vpujai6jg"
+    },
+    {
+      "name": "kind",
+      "label": "%kind%",
+      "type": "select",
+      "required": true,
+      "default": "open",
+      "options": [
+        {
+          "id": "opt_oyr7lxsljj",
+          "value": "open",
+          "label": "%open%"
+        },
+        {
+          "id": "opt_oukdxi2uh2",
+          "value": "hold",
+          "label": "%hold%"
+        },
+        {
+          "id": "opt_9cwv696lcj",
+          "value": "won",
+          "label": "%won%"
+        },
+        {
+          "id": "opt_7g2oo0aa3b",
+          "value": "lost",
+          "label": "%lost%"
+        },
+        {
+          "id": "opt_eriwtap9ps",
+          "value": "converted",
+          "label": "%converted%"
+        }
+      ],
+      "id": "fld_cij15rseot"
+    },
+    {
+      "name": "default_probability",
+      "label": "%default_probability%",
+      "type": "decimal",
+      "scale": 2,
+      "default": "0",
+      "id": "fld_z4tdbjsmvu"
+    },
+    {
+      "name": "fold",
+      "label": "%fold%",
+      "type": "bool",
+      "default": false,
+      "id": "fld_q6endv6kba"
+    },
+    {
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true,
+      "id": "fld_q9vgi1pxgs"
+    }
+  ],
+  "view": {
+    "list": [
+      "pipeline",
+      "name",
+      "sequence",
+      "kind",
+      "default_probability",
+      "active"
+    ],
+    "sort": [
+      {
+        "field": "sequence",
+        "dir": null
+      }
+    ]
+  }
+}

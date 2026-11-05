@@ -1,0 +1,59 @@
+{
+  "model_id": "mdl_m7et8bwa4v",
+  "name": "crm_territory",
+  "label": "%territory%",
+  "plural_label": "%territories%",
+  "icon": "map",
+  "title_field": "name",
+  "fields": [
+    {
+      "name": "code",
+      "label": "%code%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique",
+      "id": "fld_bo1k8we1l0"
+    },
+    {
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "id": "fld_wpjgwei11f"
+    },
+    {
+      "name": "parent",
+      "label": "%parent%",
+      "type": "link",
+      "target": "crm_territory",
+      "hierarchy": true,
+      "id": "fld_6qgxar55vn"
+    },
+    {
+      "name": "manager",
+      "label": "%manager%",
+      "type": "string",
+      "max_length": 128,
+      "help": "User id of the territory manager",
+      "id": "fld_o8e2a20pg1"
+    },
+    {
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true,
+      "id": "fld_4bx6n5kztq"
+    }
+  ],
+  "view": {
+    "list": [
+      "code",
+      "name",
+      "parent",
+      "manager",
+      "active"
+    ]
+  }
+}

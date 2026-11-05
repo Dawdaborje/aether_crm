@@ -1,0 +1,11 @@
+<page route="/crm/industries" title="Industries" model="crm_industry" menu="false" icon="factory" sort="20">
+  <view type="list" model="crm_industry" source="search_industries" create="/crm/industries/new" create_label="New industry">
+    <search/>
+    <columns>
+      <column field="code" label="Code"/>
+      <column field="name" label="Name"/>
+      <column field="active" label="Active" fieldType="boolean"/>
+    </columns>
+    <empty title="No industries yet" description="Use New to add one."/>
+  </view>
+</page>

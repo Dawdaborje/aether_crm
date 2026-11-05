@@ -1,0 +1,49 @@
+{
+  "model_id": "mdl_ialr466y0d",
+  "name": "crm_lost_reason",
+  "label": "%lost_reason%",
+  "plural_label": "%lost_reasons%",
+  "icon": "circle-x",
+  "title_field": "name",
+  "fields": [
+    {
+      "name": "code",
+      "label": "%code%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique",
+      "id": "fld_pvx1tvgyg4"
+    },
+    {
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "id": "fld_a6u3mhij79"
+    },
+    {
+      "name": "requires_notes",
+      "label": "%requires_notes%",
+      "type": "bool",
+      "default": false,
+      "id": "fld_6t6lomuqq0"
+    },
+    {
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true,
+      "id": "fld_q76az7penw"
+    }
+  ],
+  "view": {
+    "list": [
+      "code",
+      "name",
+      "requires_notes",
+      "active"
+    ]
+  }
+}

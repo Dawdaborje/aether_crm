@@ -1,0 +1,117 @@
+{
+  "model_id": "mdl_8uid8p5xrt",
+  "name": "sla_clock",
+  "label": "%sla_clock%",
+  "plural_label": "%sla_clocks%",
+  "icon": "clock",
+  "title_field": "subject_id",
+  "fields": [
+    {
+      "name": "subject_kind",
+      "label": "%subject_kind%",
+      "type": "select",
+      "required": true,
+      "options": [
+        {
+          "id": "opt_f7vxle3kyy",
+          "value": "lead",
+          "label": "%lead%"
+        },
+        {
+          "id": "opt_glkq7ynss8",
+          "value": "deal",
+          "label": "%deal%"
+        }
+      ],
+      "index": "plain",
+      "id": "fld_8b1f2qdqjv"
+    },
+    {
+      "name": "subject_id",
+      "label": "%subject_id%",
+      "type": "string",
+      "required": true,
+      "max_length": 128,
+      "index": "plain",
+      "id": "fld_vhxuwxlgtv"
+    },
+    {
+      "name": "policy",
+      "label": "%policy%",
+      "type": "link",
+      "required": true,
+      "target": "crm_sla.sla_policy",
+      "id": "fld_svuz4mfwsj",
+      "target_id": "mdl_o2u40fql3a"
+    },
+    {
+      "name": "status",
+      "label": "%status%",
+      "type": "select",
+      "required": true,
+      "default": "open",
+      "options": [
+        {
+          "id": "opt_shzgemwu8l",
+          "value": "open",
+          "label": "%open%"
+        },
+        {
+          "id": "opt_ja5a8qapf9",
+          "value": "met",
+          "label": "%met%"
+        },
+        {
+          "id": "opt_o7xcv0bg2q",
+          "value": "breached",
+          "label": "%breached%"
+        },
+        {
+          "id": "opt_emym33dtdi",
+          "value": "cancelled",
+          "label": "%cancelled%"
+        }
+      ],
+      "index": "plain",
+      "id": "fld_0rrga1811y"
+    },
+    {
+      "name": "opened_at",
+      "label": "%opened_at%",
+      "type": "datetime",
+      "required": true,
+      "id": "fld_mfr2l0omzq"
+    },
+    {
+      "name": "response_by",
+      "label": "%response_by%",
+      "type": "datetime",
+      "required": true,
+      "index": "plain",
+      "id": "fld_2wxletbd71"
+    },
+    {
+      "name": "first_responded_at",
+      "label": "%first_responded_at%",
+      "type": "datetime",
+      "id": "fld_xx5ez9p7zg"
+    },
+    {
+      "name": "company",
+      "label": "%company%",
+      "type": "string",
+      "max_length": 128,
+      "index": "plain",
+      "id": "fld_cmv7fk37x6"
+    }
+  ],
+  "view": {
+    "list": [
+      "subject_kind",
+      "subject_id",
+      "policy",
+      "status",
+      "response_by"
+    ]
+  }
+}

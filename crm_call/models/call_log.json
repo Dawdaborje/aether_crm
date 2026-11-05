@@ -1,0 +1,151 @@
+{
+  "model_id": "mdl_mu6ilkcki6",
+  "name": "call_log",
+  "label": "%call_log%",
+  "plural_label": "%call_logs%",
+  "icon": "phone",
+  "title_field": "external_id",
+  "fields": [
+    {
+      "name": "direction",
+      "label": "%direction%",
+      "type": "select",
+      "required": true,
+      "options": [
+        {
+          "id": "opt_mcw9yir7b0",
+          "value": "inbound",
+          "label": "%inbound%"
+        },
+        {
+          "id": "opt_c5amrpdsws",
+          "value": "outbound",
+          "label": "%outbound%"
+        }
+      ],
+      "id": "fld_3pq1zhzr6e"
+    },
+    {
+      "name": "from_number",
+      "label": "%from_number%",
+      "type": "string",
+      "max_length": 64,
+      "id": "fld_q89lgn479r"
+    },
+    {
+      "name": "to_number",
+      "label": "%to_number%",
+      "type": "string",
+      "max_length": 64,
+      "id": "fld_k3yk050g9a"
+    },
+    {
+      "name": "status",
+      "label": "%status%",
+      "type": "select",
+      "required": true,
+      "default": "completed",
+      "options": [
+        {
+          "id": "opt_pj6b5si32f",
+          "value": "ringing",
+          "label": "%ringing%"
+        },
+        {
+          "id": "opt_vdty49mngq",
+          "value": "completed",
+          "label": "%completed%"
+        },
+        {
+          "id": "opt_npotemgkwg",
+          "value": "missed",
+          "label": "%missed%"
+        },
+        {
+          "id": "opt_rkq0x1s67w",
+          "value": "failed",
+          "label": "%failed%"
+        },
+        {
+          "id": "opt_u19djfp90z",
+          "value": "voicemail",
+          "label": "%voicemail%"
+        }
+      ],
+      "id": "fld_h3ub3r2bf3"
+    },
+    {
+      "name": "party",
+      "label": "%party%",
+      "type": "link",
+      "target": "party.party",
+      "target_id": "mdl_mr76tss5ic",
+      "id": "fld_3mlu68wy0k"
+    },
+    {
+      "name": "subject_kind",
+      "label": "%subject_kind%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_a12kaqh6pm",
+          "value": "lead",
+          "label": "%lead%"
+        },
+        {
+          "id": "opt_k40ir2zwuo",
+          "value": "deal",
+          "label": "%deal%"
+        }
+      ],
+      "index": "plain",
+      "id": "fld_gf8icpvo0i"
+    },
+    {
+      "name": "subject_id",
+      "label": "%subject_id%",
+      "type": "string",
+      "max_length": 128,
+      "index": "plain",
+      "id": "fld_mp0qv42nwx"
+    },
+    {
+      "name": "started_at",
+      "label": "%started_at%",
+      "type": "datetime",
+      "required": true,
+      "id": "fld_mva6wt0rzp"
+    },
+    {
+      "name": "duration_sec",
+      "label": "%duration_sec%",
+      "type": "int",
+      "default": 0,
+      "id": "fld_tw5tulspk6"
+    },
+    {
+      "name": "external_id",
+      "label": "%external_id%",
+      "type": "string",
+      "max_length": 128,
+      "index": "plain",
+      "id": "fld_skrjpqs2up"
+    },
+    {
+      "name": "notes",
+      "label": "%notes%",
+      "type": "text",
+      "id": "fld_6itrp4cahk"
+    }
+  ],
+  "view": {
+    "list": [
+      "direction",
+      "status",
+      "party",
+      "subject_kind",
+      "started_at",
+      "duration_sec"
+    ]
+  }
+}

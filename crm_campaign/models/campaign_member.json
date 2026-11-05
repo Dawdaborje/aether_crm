@@ -1,0 +1,69 @@
+{
+  "model_id": "mdl_297flotugy",
+  "name": "campaign_member",
+  "label": "%campaign_member%",
+  "plural_label": "%campaign_members%",
+  "icon": "users",
+  "title_field": "subject_id",
+  "fields": [
+    {
+      "name": "campaign",
+      "label": "%campaign%",
+      "type": "link",
+      "required": true,
+      "target": "crm_campaign.campaign",
+      "target_id": "mdl_lf6fvvgecc",
+      "index": "plain",
+      "id": "fld_fq2flaxvmw"
+    },
+    {
+      "name": "subject_kind",
+      "label": "%subject_kind%",
+      "type": "select",
+      "required": true,
+      "options": [
+        {
+          "id": "opt_0l3kfj54b6",
+          "value": "party",
+          "label": "%party%"
+        },
+        {
+          "id": "opt_zg9jn43z9f",
+          "value": "lead",
+          "label": "%lead%"
+        },
+        {
+          "id": "opt_lwl8me9gxr",
+          "value": "deal",
+          "label": "%deal%"
+        }
+      ],
+      "index": "plain",
+      "id": "fld_54ntu61w7f"
+    },
+    {
+      "name": "subject_id",
+      "label": "%subject_id%",
+      "type": "string",
+      "required": true,
+      "max_length": 128,
+      "index": "plain",
+      "id": "fld_ofvf3wlwqq"
+    },
+    {
+      "name": "joined_at",
+      "label": "%joined_at%",
+      "type": "datetime",
+      "required": true,
+      "id": "fld_kmozs5pils"
+    }
+  ],
+  "view": {
+    "list": [
+      "campaign",
+      "subject_kind",
+      "subject_id",
+      "joined_at"
+    ]
+  }
+}

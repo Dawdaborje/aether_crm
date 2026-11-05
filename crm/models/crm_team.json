@@ -1,0 +1,61 @@
+{
+  "model_id": "mdl_smo1471c7c",
+  "name": "crm_team",
+  "label": "%team%",
+  "plural_label": "%teams%",
+  "icon": "users",
+  "title_field": "name",
+  "fields": [
+    {
+      "name": "code",
+      "label": "%code%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique",
+      "id": "fld_zivr7k29wl"
+    },
+    {
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "id": "fld_eg51ylfjzm"
+    },
+    {
+      "name": "company",
+      "label": "%company%",
+      "type": "link",
+      "required": true,
+      "target": "company.company",
+      "target_id": "mdl_d7q6tyyshp",
+      "index": "plain",
+      "id": "fld_0jar2tmpkq"
+    },
+    {
+      "name": "leader",
+      "label": "%leader%",
+      "type": "string",
+      "max_length": 128,
+      "help": "User id of the team leader",
+      "id": "fld_04rl217zqc"
+    },
+    {
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true,
+      "id": "fld_5okrmf3v1h"
+    }
+  ],
+  "view": {
+    "list": [
+      "code",
+      "name",
+      "company",
+      "leader",
+      "active"
+    ]
+  }
+}

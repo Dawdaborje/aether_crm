@@ -1,0 +1,44 @@
+{
+  "model_id": "mdl_grnsj4rjh7",
+  "name": "crm_team_member",
+  "label": "%team_member%",
+  "plural_label": "%team_members%",
+  "icon": "user",
+  "title_field": "user",
+  "fields": [
+    {
+      "name": "team",
+      "label": "%team%",
+      "type": "link",
+      "required": true,
+      "target": "crm_team",
+      "index": "plain",
+      "id": "fld_mg653ui7bb"
+    },
+    {
+      "name": "user",
+      "label": "%user%",
+      "type": "string",
+      "required": true,
+      "max_length": 128,
+      "index": "plain",
+      "id": "fld_lcoz8w661y"
+    }
+  ],
+  "indexes": [
+    {
+      "id": "idx_pul8oq34b7",
+      "fields": [
+        "team",
+        "user"
+      ],
+      "unique": true
+    }
+  ],
+  "view": {
+    "list": [
+      "team",
+      "user"
+    ]
+  }
+}

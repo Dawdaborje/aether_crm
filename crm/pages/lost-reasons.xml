@@ -1,0 +1,11 @@
+<page route="/crm/lost-reasons" title="Lost reasons" model="crm_lost_reason" menu="false" icon="circle-x" sort="30">
+  <view type="list" model="crm_lost_reason" source="search_lost_reasons" create="/crm/lost-reasons/new" create_label="New lost reason">
+    <search/>
+    <columns>
+      <column field="code" label="Code"/>
+      <column field="name" label="Name"/>
+      <column field="active" label="Active" fieldType="boolean"/>
+    </columns>
+    <empty title="No lost reasons yet" description="Use New to add one."/>
+  </view>
+</page>

@@ -1,0 +1,105 @@
+{
+  "model_id": "mdl_phk9gr1iie",
+  "name": "comms_thread",
+  "label": "%comms_thread%",
+  "plural_label": "%comms_threads%",
+  "icon": "messages-square",
+  "title_field": "external_thread",
+  "fields": [
+    {
+      "name": "subject_kind",
+      "label": "%subject_kind%",
+      "type": "select",
+      "required": true,
+      "options": [
+        {
+          "id": "opt_5n8ogdnu2l",
+          "value": "lead",
+          "label": "%lead%"
+        },
+        {
+          "id": "opt_le0hwkqcrk",
+          "value": "deal",
+          "label": "%deal%"
+        }
+      ],
+      "index": "plain",
+      "id": "fld_rj5cnh76an"
+    },
+    {
+      "name": "subject_id",
+      "label": "%subject_id%",
+      "type": "string",
+      "required": true,
+      "max_length": 128,
+      "index": "plain",
+      "id": "fld_e75eici636"
+    },
+    {
+      "name": "channel",
+      "label": "%channel%",
+      "type": "select",
+      "required": true,
+      "options": [
+        {
+          "id": "opt_q5vkyu3qq6",
+          "value": "email",
+          "label": "%email%"
+        },
+        {
+          "id": "opt_dt2yvsrovl",
+          "value": "sms",
+          "label": "%sms%"
+        },
+        {
+          "id": "opt_2ji4y487dk",
+          "value": "whatsapp",
+          "label": "%whatsapp%"
+        },
+        {
+          "id": "opt_pef4ozjui3",
+          "value": "other",
+          "label": "%other%"
+        }
+      ],
+      "id": "fld_gqhh7zjcz8"
+    },
+    {
+      "name": "external_thread",
+      "label": "%external_thread%",
+      "type": "string",
+      "max_length": 200,
+      "index": "plain",
+      "id": "fld_xp47wc7666"
+    },
+    {
+      "name": "last_message_at",
+      "label": "%last_message_at%",
+      "type": "datetime",
+      "id": "fld_c0j4rpburp"
+    },
+    {
+      "name": "message_ids",
+      "label": "%message_ids%",
+      "type": "text",
+      "help": "JSON array of kernel communication ids",
+      "id": "fld_vcvhqz3lg4"
+    },
+    {
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true,
+      "id": "fld_w6cksvcukh"
+    }
+  ],
+  "view": {
+    "list": [
+      "subject_kind",
+      "subject_id",
+      "channel",
+      "external_thread",
+      "last_message_at"
+    ]
+  }
+}

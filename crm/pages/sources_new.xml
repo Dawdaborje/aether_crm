@@ -1,0 +1,6 @@
+<page route="/crm/sources/new" title="New Source" model="crm_source" menu="false">
+  <view type="form" function="create_source" submit="Add Source" success="Source added" redirect="/crm/sources">
+    <field name="code" label="Code" required="true"/>
+    <field name="name" label="Name" required="true"/>
+  </view>
+</page>

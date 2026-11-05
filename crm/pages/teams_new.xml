@@ -1,0 +1,8 @@
+<page route="/crm/teams/new" title="New team" model="crm_team" menu="false">
+  <view type="form" function="create_team" submit="Add team" success="Team added" redirect="/crm/teams">
+    <field name="code" label="Code" required="true"/>
+    <field name="name" label="Name" required="true"/>
+    <field name="company" label="Company" required="true"/>
+    <field name="leader" label="Leader"/>
+  </view>
+</page>

@@ -1,0 +1,3 @@
+<page route="/crm/comms" title="Communications" icon="messages-square" sort="60">
+  <header title="Communications"/>
+</page>

@@ -1,0 +1,12 @@
+<page route="/crm/pipelines" title="Pipelines" model="crm_pipeline" menu="false" icon="git-branch" sort="70">
+  <view type="list" model="crm_pipeline" source="search_pipelines" open="/crm/pipelines/{id}/stages" create="/crm/pipelines/new" create_label="New pipeline">
+    <search/>
+    <columns>
+      <column field="code" label="Code"/>
+      <column field="name" label="Name"/>
+      <column field="company" label="Company"/>
+      <column field="active" label="Active" fieldType="boolean"/>
+    </columns>
+    <empty title="No pipelines yet" description="Use New to add one. Open a row to manage stages."/>
+  </view>
+</page>

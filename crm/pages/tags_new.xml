@@ -1,0 +1,6 @@
+<page route="/crm/tags/new" title="New tag" model="crm_tag" menu="false">
+  <view type="form" function="create_tag" submit="Add tag" success="Tag added" redirect="/crm/tags">
+    <field name="name" label="Name" required="true"/>
+    <field name="color" label="Color"/>
+  </view>
+</page>

@@ -1,0 +1,39 @@
+{
+  "model": "deal_line",
+  "access": [
+    {
+      "name": "read",
+      "roles": [
+        "crm_user",
+        "crm_admin"
+      ],
+      "operations": [
+        "read"
+      ]
+    },
+    {
+      "name": "write",
+      "roles": [
+        "crm_user",
+        "crm_admin"
+      ],
+      "operations": [
+        "read",
+        "create",
+        "write"
+      ]
+    },
+    {
+      "name": "via_plugins",
+      "roles": [
+        "via:*"
+      ],
+      "operations": [
+        "create",
+        "write",
+        "read",
+        "delete"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+<page route="/crm/campaigns/new" title="New campaign" model="campaign" menu="false" roles="crm_user,crm_admin">
+  <view type="form" function="create_campaign" submit="Create campaign" success="Campaign created" redirect="/crm/campaigns">
+    <group title="Campaign" cols="2">
+      <field name="code" label="Code" required="true"/>
+      <field name="name" label="Name" required="true"/>
+      <field name="channel" label="Channel" required="true"/>
+      <field name="utm_campaign" label="UTM campaign"/>
+    </group>
+    <group title="Dates" cols="2">
+      <field name="starts_on" label="Starts on"/>
+      <field name="ends_on" label="Ends on"/>
+    </group>
+  </view>
+</page>

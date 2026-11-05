@@ -1,0 +1,125 @@
+{
+  "model_id": "mdl_o2u40fql3a",
+  "name": "sla_policy",
+  "label": "%sla_policy%",
+  "plural_label": "%sla_policies%",
+  "icon": "timer",
+  "title_field": "name",
+  "fields": [
+    {
+      "name": "code",
+      "label": "%code%",
+      "type": "string",
+      "required": true,
+      "max_length": 64,
+      "index": "unique",
+      "id": "fld_4p6h8invih"
+    },
+    {
+      "name": "name",
+      "label": "%name%",
+      "type": "string",
+      "required": true,
+      "max_length": 200,
+      "id": "fld_4vlk8hww2h"
+    },
+    {
+      "name": "apply_on",
+      "label": "%apply_on%",
+      "type": "select",
+      "required": true,
+      "default": "lead",
+      "options": [
+        {
+          "id": "opt_478pha9k4t",
+          "value": "lead",
+          "label": "%lead%"
+        },
+        {
+          "id": "opt_bvmcvdgq5v",
+          "value": "deal",
+          "label": "%deal%"
+        },
+        {
+          "id": "opt_84etw12bs7",
+          "value": "both",
+          "label": "%both%"
+        }
+      ],
+      "id": "fld_n4n28p2v6a"
+    },
+    {
+      "name": "first_response_hours",
+      "label": "%first_response_hours%",
+      "type": "decimal",
+      "required": true,
+      "scale": 2,
+      "help": "Business hours until first response is due",
+      "id": "fld_5poz1sokbi"
+    },
+    {
+      "name": "calendar",
+      "label": "%calendar%",
+      "type": "link",
+      "target": "calendar.holiday_calendar",
+      "target_id": "mdl_ubt6z6vnp5",
+      "help": "Optional holiday calendar for business-time deadlines",
+      "id": "fld_duck56fvbl"
+    },
+    {
+      "name": "source",
+      "label": "%source%",
+      "type": "link",
+      "target": "crm.crm_source",
+      "target_id": "mdl_hajhkmj2gc",
+      "id": "fld_usbu97sj4i"
+    },
+    {
+      "name": "team",
+      "label": "%team%",
+      "type": "link",
+      "target": "crm.crm_team",
+      "target_id": "mdl_smo1471c7c",
+      "id": "fld_nvwfupi847"
+    },
+    {
+      "name": "priority",
+      "label": "%priority%",
+      "type": "select",
+      "options": [
+        {
+          "id": "opt_cku72eqto5",
+          "value": "low",
+          "label": "%low%"
+        },
+        {
+          "id": "opt_k83eelcplo",
+          "value": "medium",
+          "label": "%medium%"
+        },
+        {
+          "id": "opt_1djtde6fff",
+          "value": "high",
+          "label": "%high%"
+        }
+      ],
+      "id": "fld_se0x4c6zuj"
+    },
+    {
+      "name": "active",
+      "label": "%active%",
+      "type": "bool",
+      "default": true,
+      "id": "fld_zgyki66yt0"
+    }
+  ],
+  "view": {
+    "list": [
+      "code",
+      "name",
+      "apply_on",
+      "first_response_hours",
+      "active"
+    ]
+  }
+}

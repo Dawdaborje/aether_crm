@@ -1,0 +1,6 @@
+<page route="/crm/lost-reasons/new" title="New Lost reason" model="crm_lost_reason" menu="false">
+  <view type="form" function="create_lost_reason" submit="Add Lost reason" success="Lost reason added" redirect="/crm/lost-reasons">
+    <field name="code" label="Code" required="true"/>
+    <field name="name" label="Name" required="true"/>
+  </view>
+</page>

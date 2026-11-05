@@ -1,0 +1,25 @@
+<page route="/crm" title="CRM" icon="handshake" sort="1" menu="false">
+  <header title="CRM" subtitle="Work your pipeline, or adjust how the CRM is configured."/>
+  <view type="dashboard" source="home_summary" cols="4">
+    <stat label="Status" field="configured"/>
+    <stat label="Pipelines" field="pipelines"/>
+    <stat label="Pipeline stages" field="stages"/>
+    <stat label="Lead sources" field="sources"/>
+  </view>
+  <group title="Sales">
+    <buttonbox>
+      <button label="Leads" href="/crm/leads" variant="secondary"/>
+      <button label="Deals" href="/crm/deals" variant="secondary"/>
+      <button label="Customers" href="/crm/customers" variant="secondary"/>
+      <button label="Reports" href="/crm/reports" variant="secondary"/>
+    </buttonbox>
+  </group>
+  <group title="Configuration">
+    <buttonbox>
+      <button label="Pipelines" href="/crm/pipelines" variant="outline"/>
+      <button label="Sources" href="/crm/sources" variant="outline"/>
+      <button label="Teams" href="/crm/teams" variant="outline"/>
+      <button label="All configuration" href="/crm/configuration" variant="outline"/>
+    </buttonbox>
+  </group>
+</page>
