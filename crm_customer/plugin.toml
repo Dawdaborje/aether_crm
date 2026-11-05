@@ -3,7 +3,7 @@ name = "crm_customer"
 icon_path = "assets/logo.svg"
 label = "Customers"
 version = "0.1.1"
-description = "Customer 360 overlay on party: segment, owner, territory, lifecycle."
+description = "A full customer view on top of a party: segment, owner, territory and lifecycle stage."
 long_description = """
 Customer 360 overlay on party: segment, owner, territory, lifecycle. Written in Rust.
 See docs/design.md in this plugin (crm_customer/docs/design.md).

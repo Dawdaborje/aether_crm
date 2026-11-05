@@ -3,7 +3,7 @@ name = "crm_intake"
 icon_path = "assets/logo.svg"
 label = "Lead intake"
 version = "0.1.1"
-description = "Inbound forms and website-to-lead (or deal) creation."
+description = "Web and inbound forms that create leads or deals automatically."
 long_description = """
 Inbound forms and website-to-lead (or deal) creation. Written in Rust.
 See docs/design.md in this plugin (crm_intake/docs/design.md).

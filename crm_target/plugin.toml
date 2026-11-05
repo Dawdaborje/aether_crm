@@ -3,7 +3,7 @@ name = "crm_target"
 icon_path = "assets/logo.svg"
 label = "Sales targets"
 version = "0.1.1"
-description = "Team and rep quotas versus won revenue."
+description = "Sales quotas for teams and reps, compared with the revenue won."
 long_description = """
 Team and rep quotas versus won revenue. Written in Rust.
 See docs/design.md in this plugin (crm_target/docs/design.md).

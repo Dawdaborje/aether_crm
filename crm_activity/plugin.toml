@@ -3,7 +3,7 @@ name = "crm_activity"
 icon_path = "assets/logo.svg"
 label = "Activities"
 version = "0.1.0"
-description = "Tasks, meetings and call-activities on leads and deals."
+description = "Tasks, meetings and calls to follow up on leads and deals."
 long_description = """
 Tasks, meetings and call-activities on leads and deals. Written in Rust.
 See docs/design.md in this plugin (crm_activity/docs/design.md).

@@ -3,7 +3,7 @@ name = "crm_comms"
 icon_path = "assets/logo.svg"
 label = "CRM communications"
 version = "0.1.0"
-description = "Email and messaging threads on leads and deals via kernel messaging."
+description = "Email and message threads on leads and deals, sent through the platform's messaging."
 long_description = """
 Email and messaging threads on leads and deals via kernel messaging. Written in Rust.
 See docs/design.md in this plugin (crm_comms/docs/design.md).

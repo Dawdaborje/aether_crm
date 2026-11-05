@@ -3,7 +3,7 @@ name = "crm_deal"
 icon_path = "assets/logo.svg"
 label = "Deals"
 version = "0.1.1"
-description = "Opportunities, lines, append-only pipeline events, win and lose."
+description = "Sales opportunities with their lines, a history of every pipeline move, and winning or losing a deal."
 long_description = """
 Opportunities, lines, append-only pipeline events, win and lose. Written in Rust.
 See docs/design.md in this plugin (crm_deal/docs/design.md).
