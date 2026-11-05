@@ -3,7 +3,7 @@ name = "crm_report"
 icon_path = "assets/logo.svg"
 label = "CRM reports"
 version = "0.1.0"
-description = "Pipeline funnels, conversion rates and stage-duration metrics."
+description = "Pipeline funnels, conversion rates and how long deals stay in each stage."
 long_description = """
 Pipeline funnels, conversion rates and stage-duration metrics. Written in Rust.
 See docs/design.md in this plugin (crm_report/docs/design.md).

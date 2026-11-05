@@ -3,7 +3,7 @@ name = "crm_call"
 icon_path = "assets/logo.svg"
 label = "Call log"
 version = "0.1.0"
-description = "Phone call records linked to parties, leads and deals."
+description = "Phone call records linked to people, leads and deals."
 long_description = """
 Phone call records linked to parties, leads and deals. Written in Rust.
 See docs/design.md in this plugin (crm_call/docs/design.md).

@@ -3,7 +3,7 @@ name = "crm_lead"
 icon_path = "assets/logo.svg"
 label = "Leads"
 version = "0.1.1"
-description = "Unqualified prospects and idempotent convert to deal."
+description = "Prospects not yet qualified, and converting a lead into a deal without ever creating a duplicate."
 long_description = """
 Unqualified prospects and idempotent convert to deal. Written in Rust.
 See docs/design.md in this plugin (crm_lead/docs/design.md).
